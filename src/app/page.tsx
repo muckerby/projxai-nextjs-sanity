@@ -12,9 +12,8 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
-  // other metadata
+  title: "ProjxAI - AI Automation for Business Growth",
+  description: "Transform your business with AI-powered marketing, customer automation, and business process optimization. Fast implementation, measurable results.",
 };
 
 export default function Home() {
@@ -23,10 +22,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      <Video />
-      <Brands />
       <AboutSectionOne />
-      <AboutSectionTwo />
       <Testimonials />
       <Pricing />
       <Blog />
