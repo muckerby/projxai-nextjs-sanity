@@ -55,11 +55,51 @@ const Header = () => {
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <img
-                  src="/images/projxai_logo_final_white.png"
-                  height={40}
-                  alt="ProjxAI"
-                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 240 40"
+                  height="40"
+                  aria-label="ProjxAI"
+                  style={{ overflow: "visible" }}
+                >
+                  <defs>
+                    <linearGradient id="compassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#00B4FF" />
+                      <stop offset="100%" stopColor="#7B2FFF" />
+                    </linearGradient>
+                  </defs>
+                  {/* Outer circle */}
+                  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#compassGrad)" strokeWidth="1.5" />
+                  {/* Compass needle — N half (cyan) */}
+                  <polygon points="20,5 15,20 25,20" fill="#00B4FF" />
+                  {/* Compass needle — S half (purple) */}
+                  <polygon points="20,35 15,20 25,20" fill="#7B2FFF" />
+                  {/* Centre dot */}
+                  <circle cx="20" cy="20" r="2.5" fill="white" />
+                  {/* ProjxAI wordmark */}
+                  <text
+                    x="46"
+                    y="26"
+                    fontFamily="'Inter', 'Segoe UI', Arial, sans-serif"
+                    fontSize="21"
+                    fontWeight="700"
+                    fill="white"
+                    letterSpacing="-0.4"
+                  >
+                    ProjxAI
+                  </text>
+                  {/* Tagline */}
+                  <text
+                    x="47"
+                    y="36"
+                    fontFamily="'Inter', 'Segoe UI', Arial, sans-serif"
+                    fontSize="8.5"
+                    fill="#8B9CC8"
+                    letterSpacing="0.4"
+                  >
+                    Navigating AI Marketing Success
+                  </text>
+                </svg>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
