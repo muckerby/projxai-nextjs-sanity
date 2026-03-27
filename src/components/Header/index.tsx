@@ -55,65 +55,12 @@ const Header = () => {
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 200 44"
-                  height="44"
-                  aria-label="ProjxAI"
-                >
-                  <defs>
-                    {/* Vertical gradient for ring — top cyan, bottom purple */}
-                    <linearGradient id="ringGrad" x1="20" y1="3" x2="20" y2="41" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#00B4FF" />
-                      <stop offset="100%" stopColor="#7B2FFF" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* ── Icon ── */}
-                  {/* Navy filled background circle */}
-                  <circle cx="20" cy="22" r="19" fill="#1a1a2e" />
-                  {/* Gradient outer ring */}
-                  <circle cx="20" cy="22" r="17" fill="none" stroke="url(#ringGrad)" strokeWidth="2" />
-
-                  {/* Circuit node dots at 4 cardinal points on the ring */}
-                  <circle cx="20" cy="5"  r="3" fill="#00B4FF" />  {/* N — cyan */}
-                  <circle cx="37" cy="22" r="3" fill="#4A78FB" />  {/* E — mid */}
-                  <circle cx="20" cy="39" r="3" fill="#7B2FFF" />  {/* S — purple */}
-                  <circle cx="3"  cy="22" r="3" fill="#4A78FB" />  {/* W — mid */}
-
-                  {/* Compass needle — diamond rotated 30° CW (pointing NE) */}
-                  <g transform="translate(20,22) rotate(30)">
-                    {/* N kite — cyan */}
-                    <polygon points="0,-12 -5,0 5,0" fill="#00B4FF" />
-                    {/* S kite — purple */}
-                    <polygon points="0,12 -5,0 5,0" fill="#7B2FFF" />
-                  </g>
-
-                  {/* ── Text ── */}
-                  {/* "ProjxAI" wordmark */}
-                  <text
-                    x="50"
-                    y="27"
-                    fontFamily="'Inter', 'Segoe UI', Arial, sans-serif"
-                    fontSize="22"
-                    fontWeight="700"
-                    fill="white"
-                    letterSpacing="-0.3"
-                  >
-                    ProjxAI
-                  </text>
-                  {/* Tagline */}
-                  <text
-                    x="51"
-                    y="38"
-                    fontFamily="'Inter', 'Segoe UI', Arial, sans-serif"
-                    fontSize="9.5"
-                    fill="white"
-                    fillOpacity="0.55"
-                  >
-                    Navigating AI for Business
-                  </text>
-                </svg>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo.png"
+                  alt="ProjxAI"
+                  style={{ height: "44px", width: "auto" }}
+                />
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">

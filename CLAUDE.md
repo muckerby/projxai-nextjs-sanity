@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project Overview
+
+**ProjxAI** — AI consultancy and toolkit platform for Australian SMEs.
+**Entity:** Collicorp Pty Ltd | ABN 80 398 642 662 | Director: Michael Collicoat | Brisbane, QLD
+**Domain:** projxai.com.au | **Repo:** github.com/muckerby/projxai-nextjs-sanity
+
+Full project context in `docs/CLAUDE_UPDATED.md`. Read that file at the start of each session.
+
 ## Commands
 
 ```bash
@@ -11,30 +19,82 @@ npm run start     # Start production server
 npm run lint      # Run ESLint
 ```
 
-No test runner is configured. Prettier is available via `npx prettier --write <file>`.
+No test runner configured. Auto-deploy to projxai.com.au on every push to `main` via Vercel.
+
+## Git Identity
+
+```bash
+git config user.email 'mcollicoat@gmail.com'
+git config user.name 'muckerby'
+```
+
+## Brand
+
+- **Primary colour:** `#6B3FE7` (purple)
+- **Logo:** `public/images/logo.png` (transparent PNG)
+- **Favicon:** `public/favicon.ico`
 
 ## Architecture
 
-**ProjxAI** is a Next.js 16 (App Router) SaaS landing site for an AI automation business, built on a startup template. It uses React 19, TypeScript 5.3, Tailwind CSS v4, and next-themes for dark mode.
+Next.js 16 App Router, React 19, TypeScript 5.3, Tailwind CSS v4, next-themes (dark mode).
 
-### Routing & Pages (`src/app/`)
-All routes use the App Router. The homepage (`page.tsx`) composes section components in sequence: Hero → Features → About → Testimonials → Pricing → Blog → Contact. The root layout (`layout.tsx`) wraps everything with `<Header>`, `<Footer>`, and `<ScrollToTop>`.
+### Routing (`src/app/`)
 
-Theme setup lives in `providers.tsx` which wraps children with `next-themes`' `ThemeProvider` using class-based dark mode.
+| Route | Status |
+|---|---|
+| `/` | ✅ Built — Hero, AudienceStrip, Features (3-pillar), ToolTeasers, StatsStrip, Blog, ConsultingCTA |
+| `/services` | ✅ Built — 4-service grid, process, CTA |
+| `/services/ai-consulting` | ✅ Built — full copy |
+| `/services/ai-implementation` | ✅ Built |
+| `/services/ai-content` | ✅ Built |
+| `/services/ai-automation` | ✅ Built |
+| `/about` | ✅ Built — full copy |
+| `/work-with-us` | ✅ Built — email CTA (Calendly pending) |
+| `/tools` | ✅ Built — ROAS + Espionage cards |
+| `/tools/roas-calculator` | 🔲 Phase 2 |
+| `/tools/competitor-espionage-engine` | 🔲 Phase 3 |
+| `/blog` | ✅ Exists (Sanity) |
+| `/blog/[slug]` | ✅ Exists (Sanity) |
+| `/privacy`, `/terms` | 🔲 Needed |
 
-### Components (`src/components/`)
-Each major section is a self-contained directory. Data is co-located with components (e.g., `blogData.tsx`, `featuresData.tsx`, `menuData.tsx`). Static/mock data lives in these files; blog content comes from Sanity CMS at runtime.
+### Key Components (`src/components/`)
+
+- `Header/` — sticky nav, Services dropdown, logo PNG, ThemeToggler
+- `Hero/` — homepage hero (from home.md copy)
+- `Features/` — 3-pillar section (AI Tools, AI Content, AI Consulting)
+- `AudienceStrip/` — 4-audience routing cards
+- `ToolTeasers/` — ROAS + Espionage dark-bg teasers
+- `StatsStrip/` — purple stats banner
+- `ConsultingCTA/` — dark CTA banner
+- `Footer/` — ProjxAI branding, correct links, ABN
 
 ### Styling
-Tailwind CSS v4 is configured via `@tailwindcss/postcss` in `postcss.config.js`. Global styles and the custom theme (primary: `#6B3FE7`, dark mode palette) are in `src/styles/index.css`. Prettier uses `prettier-plugin-tailwindcss` for class sorting.
 
-### Path Aliases
-`@/*` resolves to `./src/*` (configured in both `tsconfig.json` and `jsconfig.json`).
+Tailwind CSS v4 via `@tailwindcss/postcss`. Theme in `src/styles/index.css`.
+Path alias: `@/*` → `./src/*`
 
 ### Sanity CMS
-Blog content is sourced from Sanity. Environment variables required:
-- `NEXT_PUBLIC_SANITY_PROJECT_ID`
-- `NEXT_PUBLIC_SANITY_DATASET`
-- `NEXT_PUBLIC_SANITY_API_VERSION`
 
-Remote images from `cdn.sanity.io` are allowed in `next.config.js`.
+Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
+- Project ID: `zma68sbk` | Dataset: `production`
+- Studio: https://projxai.sanity.studio
+- Env vars in `.env` (gitignored) and Vercel project settings
+
+### Pending Work (Session 4+)
+
+- Calendly embed on `/work-with-us` (account needed)
+- Michael's headshot (400×400px) for About and Work With Us
+- `/tools/roas-calculator` — functional build (Phase 2)
+- `/tools/competitor-espionage-engine` — functional build (Phase 3)
+- `/privacy` and `/terms` pages
+- projxai.com DNS records (A + CNAME in Cloudflare)
+- `npx sanity deploy` to push schemas to projxai.sanity.studio
+- Email capture form on `/tools` wired to Mailchimp/ConvertKit
+
+## Session History
+
+| Session | Date | Key Outcomes |
+|---|---|---|
+| 1 | 25 Mar 2026 | Dev machine, GitHub repo, Vercel live, Sanity trial, Stripe sandbox |
+| 2 | 25 Mar 2026 | CLAUDE.md, SVG logo, nav restructured, #6B3FE7 brand colour across codebase |
+| 3 | 27 Mar 2026 | docs/ folder, logo.png (transparent), favicon.ico, Services dropdown, homepage rebuilt, 8 pages built (/services full, /about, /work-with-us, /tools), Sanity schemas created, Footer updated |

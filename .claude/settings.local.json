@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l C:Collicorpprojxaisrc/components/*/*.tsx)",
+      "Bash(cp \"G:/My Drive/ProjxAI/Images/projxai_logo_final_white.png\" \"C:/Collicorp/projxai/public/images/\")",
+      "Bash(cp \"G:/My Drive/ProjxAI/Images/projxai_logo_white_bg.png\" \"C:/Collicorp/projxai/public/images/\")",
+      "Bash(cp \"G:/My Drive/ProjxAI/Images/projxai_stacked_logo.png\" \"C:/Collicorp/projxai/public/images/\")",
+      "Bash(cp \"G:/My Drive/ProjxAI/Images/projxai_compass_icon.png\" \"C:/Collicorp/projxai/public/images/\")",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"Updated $f\")",
+      "Bash(done)",
+      "Bash(while read:*)",
+      "Bash(npx vercel:*)",
+      "Bash(python -c \"from PIL import Image; print\\(''PIL ok''\\)\")",
+      "Bash(pip install:*)",
+      "Bash(python -:*)"
+    ]
+  }
+}

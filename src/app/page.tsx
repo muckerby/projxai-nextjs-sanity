@@ -1,19 +1,17 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AudienceStrip from "@/components/AudienceStrip";
 import Blog from "@/components/Blog";
-import Brands from "@/components/Brands";
+import ConsultingCTA from "@/components/ConsultingCTA";
 import ScrollUp from "@/components/Common/ScrollUp";
-import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
-import Video from "@/components/Video";
+import StatsStrip from "@/components/StatsStrip";
+import ToolTeasers from "@/components/ToolTeasers";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ProjxAI - AI Automation for Business Growth",
-  description: "Transform your business with AI-powered marketing, customer automation, and business process optimization. Fast implementation, measurable results.",
+  title: "ProjxAI — AI for Australian Business",
+  description:
+    "ProjxAI helps Australian SMEs implement AI that saves time, reduces costs, and grows revenue. Plain English. Practical results. No in-house tech team required.",
 };
 
 export default function Home() {
@@ -21,12 +19,12 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
+      <AudienceStrip />
       <Features />
-      <AboutSectionOne />
-      <Testimonials />
-      <Pricing />
+      <ToolTeasers />
+      <StatsStrip />
       <Blog />
-      <Contact />
+      <ConsultingCTA />
     </>
   );
 }

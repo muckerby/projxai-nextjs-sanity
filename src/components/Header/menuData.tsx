@@ -9,26 +9,63 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
+    title: "Services",
+    newTab: false,
+    submenu: [
+      {
+        id: 21,
+        title: "AI Consulting & Strategy",
+        path: "/services/ai-consulting",
+        newTab: false,
+      },
+      {
+        id: 22,
+        title: "AI Implementation",
+        path: "/services/ai-implementation",
+        newTab: false,
+      },
+      {
+        id: 23,
+        title: "AI Content Creation",
+        path: "/services/ai-content",
+        newTab: false,
+      },
+      {
+        id: 24,
+        title: "AI Tools & Automation",
+        path: "/services/ai-automation",
+        newTab: false,
+      },
+      {
+        id: 25,
+        title: "All Services",
+        path: "/services",
+        newTab: false,
+      },
+    ],
+  },
+  {
+    id: 3,
     title: "Tools",
     path: "/tools",
     newTab: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "Blog",
     path: "/blog",
     newTab: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "About",
     path: "/about",
     newTab: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "Work With Us",
-    path: "/contact",
+    path: "/work-with-us",
     newTab: false,
   },
 ];
