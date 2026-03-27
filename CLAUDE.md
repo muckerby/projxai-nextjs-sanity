@@ -77,7 +77,9 @@ Path alias: `@/*` → `./src/*`
 
 Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
 - Project ID: `zma68sbk` | Dataset: `production`
-- Studio: https://projxai.sanity.studio
+- Studio URL: https://projxai.sanity.studio/ ✅ deployed
+- Studio App ID: `ozd8jpo1zrtzrafj8mki2f7d`
+- Config files: `sanity.config.ts`, `sanity.cli.ts` (studioHost: `projxai`)
 - Env vars in `.env` (gitignored) and Vercel project settings
 
 ### Pending Work (Session 4+)
@@ -88,7 +90,6 @@ Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
 - `/tools/competitor-espionage-engine` — functional build (Phase 3)
 - `/privacy` and `/terms` pages
 - projxai.com DNS records (A + CNAME in Cloudflare)
-- `npx sanity deploy` to push schemas to projxai.sanity.studio
 - Email capture form on `/tools` wired to Mailchimp/ConvertKit
 
 ## Session History
@@ -97,4 +98,4 @@ Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
 |---|---|---|
 | 1 | 25 Mar 2026 | Dev machine, GitHub repo, Vercel live, Sanity trial, Stripe sandbox |
 | 2 | 25 Mar 2026 | CLAUDE.md, SVG logo, nav restructured, #6B3FE7 brand colour across codebase |
-| 3 | 27 Mar 2026 | docs/ folder, logo.png (transparent), favicon.ico, Services dropdown, homepage rebuilt, 8 pages built (/services full, /about, /work-with-us, /tools), Sanity schemas created, Footer updated |
+| 3 | 27 Mar 2026 | docs/ folder, logo.png (transparent), favicon.ico, Services dropdown, homepage rebuilt, 8 pages built (/services full, /about, /work-with-us, /tools), Sanity schemas created, Footer updated, Sanity Studio deployed to projxai.sanity.studio |
