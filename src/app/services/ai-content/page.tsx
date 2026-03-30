@@ -2,9 +2,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Content Creation — ProjxAI",
+  title: "AI Content Creation Australia | ProjxAI",
   description:
     "AI-powered content workflows your team will actually use. Blog posts, social copy, email sequences at scale — built for Australian marketing teams.",
+  openGraph: {
+    title: "AI Content Creation Australia | ProjxAI",
+    description:
+      "AI-powered content workflows your team will actually use. Blog posts, social copy, email sequences at scale — built for Australian marketing teams.",
+    url: "https://www.projxai.com.au/services/ai-content",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 export default function AiContentPage() {

@@ -25,7 +25,7 @@ const Footer = () => {
                   ABN: 80 398 642 662
                 </p>
                 <p className="mb-1 text-sm text-body-color dark:text-body-color-dark">
-                  © 2026 Collicorp Pty Ltd. All rights reserved.
+                  © 2026 ProjxAI. All rights reserved.
                 </p>
                 <p className="text-sm text-body-color dark:text-body-color-dark">
                   Brisbane, QLD, Australia
@@ -71,7 +71,7 @@ const Footer = () => {
                   {[
                     { label: "Privacy Policy", href: "/privacy" },
                     { label: "Terms of Service", href: "/terms" },
-                    { label: "Contact", href: "/work-with-us" },
+                    { label: "Contact", href: "/contact" },
                   ].map((l) => (
                     <li key={l.href}>
                       <Link
@@ -110,7 +110,7 @@ const Footer = () => {
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-sm text-body-color dark:text-white/60">
-              © 2026 Collicorp Pty Ltd (ABN 80 398 642 662). ProjxAI is a Collicorp brand. Brisbane, QLD, Australia.
+              ABN 80 398 642 662 | © 2026 ProjxAI | Brisbane, QLD, Australia
             </p>
           </div>
         </div>

@@ -9,9 +9,16 @@ import ToolTeasers from "@/components/ToolTeasers";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ProjxAI — AI for Australian Business",
+  title: "ProjxAI — AI for Australian Business | Practical AI Implementation",
   description:
     "ProjxAI helps Australian SMEs implement AI that saves time, reduces costs, and grows revenue. Plain English. Practical results. No in-house tech team required.",
+  openGraph: {
+    title: "ProjxAI — AI for Australian Business | Practical AI Implementation",
+    description:
+      "ProjxAI helps Australian SMEs implement AI that saves time, reduces costs, and grows revenue. Plain English. Practical results. No in-house tech team required.",
+    url: "https://www.projxai.com.au",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 export default function Home() {

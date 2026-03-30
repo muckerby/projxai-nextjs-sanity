@@ -2,9 +2,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Services for Australian Businesses — ProjxAI",
+  title: "AI Services for Australian SMEs | ProjxAI",
   description:
     "AI consulting, implementation, content creation and automation services built for Australian SMEs. Practical results, plain English.",
+  openGraph: {
+    title: "AI Services for Australian SMEs | ProjxAI",
+    description:
+      "AI consulting, implementation, content creation and automation services built for Australian SMEs. Practical results, plain English.",
+    url: "https://www.projxai.com.au/services",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 const services = [

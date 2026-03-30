@@ -2,9 +2,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools & Automation — ProjxAI",
+  title: "AI Tools & Automation | ProjxAI",
   description:
     "Identify what AI can automate in your business and build it. Save hours every week — eCommerce, SME, agency.",
+  openGraph: {
+    title: "AI Tools & Automation | ProjxAI",
+    description:
+      "Identify what AI can automate in your business and build it. Save hours every week — eCommerce, SME, agency.",
+    url: "https://www.projxai.com.au/services/ai-automation",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 export default function AiAutomationPage() {

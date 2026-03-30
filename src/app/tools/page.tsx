@@ -2,9 +2,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools for Australian Businesses — ProjxAI",
+  title: "Free AI Tools for Australian Business | ProjxAI",
   description:
     "Free and paid AI tools built for Australian SMEs. Start with the ROAS Calculator or get the Competitor Espionage Engine report for $99.",
+  openGraph: {
+    title: "Free AI Tools for Australian Business | ProjxAI",
+    description:
+      "Free and paid AI tools built for Australian SMEs. Start with the ROAS Calculator or get the Competitor Espionage Engine report for $99.",
+    url: "https://www.projxai.com.au/tools",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 export default function ToolsPage() {

@@ -47,8 +47,27 @@ const menuData: Menu[] = [
   {
     id: 3,
     title: "Tools",
-    path: "/tools",
     newTab: false,
+    submenu: [
+      {
+        id: 31,
+        title: "ROAS Calculator",
+        path: "/tools/roas-calculator",
+        newTab: false,
+      },
+      {
+        id: 32,
+        title: "Competitor Espionage Engine",
+        path: "/tools/competitor-espionage-engine",
+        newTab: false,
+      },
+      {
+        id: 33,
+        title: "All Tools",
+        path: "/tools",
+        newTab: false,
+      },
+    ],
   },
   {
     id: 4,

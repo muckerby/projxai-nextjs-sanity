@@ -5,9 +5,16 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
+  title: "AI Blog for Australian Business | ProjxAI",
+  description:
+    "Practical AI insights, guides, and case studies for Australian SMEs. Plain English — no jargon, no hype.",
+  openGraph: {
+    title: "AI Blog for Australian Business | ProjxAI",
+    description:
+      "Practical AI insights, guides, and case studies for Australian SMEs. Plain English — no jargon, no hype.",
+    url: "https://www.projxai.com.au/blog",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 const Blog = () => {

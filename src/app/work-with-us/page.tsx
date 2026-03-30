@@ -2,9 +2,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work With Us — ProjxAI",
+  title: "Work With Us | Book a Free AI Discovery Call | ProjxAI",
   description:
     "Book a free 30-minute discovery call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business.",
+  openGraph: {
+    title: "Work With Us | Book a Free AI Discovery Call | ProjxAI",
+    description:
+      "Book a free 30-minute discovery call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business.",
+    url: "https://www.projxai.com.au/work-with-us",
+    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
+  },
 };
 
 export default function WorkWithUsPage() {
@@ -21,7 +28,7 @@ export default function WorkWithUsPage() {
               No sales pitch. No obligation. Just a focused conversation about where AI can genuinely help your business — and what to do first.
             </p>
             <a
-              href="mailto:michaelc@collicorp.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
+              href="mailto:michaelc@projxai.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Book your free discovery call →
@@ -127,17 +134,20 @@ export default function WorkWithUsPage() {
           <div className="mx-auto max-w-[720px]">
             <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">Who you&apos;ll be talking to</h2>
             <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-              <div className="bg-primary/10 flex h-24 w-24 shrink-0 items-center justify-center rounded-full text-3xl font-bold text-primary">
-                MC
+              {/* Replace with real headshot: 400x400px */}
+              <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-primary/70">
+                <svg className="h-14 w-14 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+                </svg>
               </div>
               <div>
                 <h3 className="mb-1 text-xl font-bold text-black dark:text-white">Michael Collicoat</h3>
-                <p className="text-primary mb-4 text-sm font-medium">Director, Collicorp Pty Ltd | Founder, ProjxAI</p>
+                <p className="text-primary mb-4 text-sm font-medium">Founder, ProjxAI | Brisbane, QLD, Australia</p>
                 <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Michael is the founder of ProjxAI and director of Collicorp Pty Ltd, based in Brisbane, QLD. He works with Australian SMEs to help them understand and implement AI in practical, revenue-generating ways — without the jargon, without the overpriced consultants, and without the vague "digital transformation" promises.
+                  Michael is the founder of ProjxAI, based in Brisbane, QLD. He works with Australian SMEs to help them understand and implement AI in practical, revenue-generating ways — without the jargon, without the overpriced consultants, and without the vague "digital transformation" promises.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  ProjxAI is his first Collicorp brand — built specifically to fill the gap between enterprise AI tools (built for big corporates) and Australian small businesses who know AI matters but don&apos;t know where to start.
+                  ProjxAI was built specifically to fill the gap between enterprise AI tools (built for big corporates) and Australian small businesses who know AI matters but don&apos;t know where to start.
                 </p>
               </div>
             </div>
@@ -154,10 +164,10 @@ export default function WorkWithUsPage() {
               Email us directly and we&apos;ll respond within 1 business day to confirm a time.
             </p>
             <p className="mb-8 text-base text-white/70">
-              <strong className="text-white">michaelc@collicorp.com.au</strong>
+              <strong className="text-white">michaelc@projxai.com.au</strong>
             </p>
             <a
-              href="mailto:michaelc@collicorp.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
+              href="mailto:michaelc@projxai.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Send an email →

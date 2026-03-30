@@ -59,7 +59,7 @@ const Header = () => {
                 <img
                   src="/images/logo.png"
                   alt="ProjxAI"
-                  style={{ height: "44px", width: "auto" }}
+                  style={{ height: "40px", width: "auto", opacity: 1 }}
                 />
               </Link>
             </div>
@@ -128,7 +128,7 @@ const Header = () => {
                               </span>
                             </p>
                             <div
-                              className={`submenu dark:bg-dark relative top-full left-0 rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                              className={`submenu dark:bg-dark relative top-full left-0 rounded-lg bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:z-50 lg:block lg:w-[260px] lg:rounded-lg lg:border lg:border-stroke lg:p-2 lg:opacity-0 lg:shadow-xl lg:group-hover:visible lg:group-hover:top-full dark:lg:border-stroke-dark ${
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
@@ -136,7 +136,7 @@ const Header = () => {
                                 <Link
                                   href={submenuItem.path}
                                   key={index}
-                                  className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white"
+                                  className="text-dark hover:text-primary hover:bg-primary/5 block rounded-md px-3 py-2.5 text-sm dark:text-white/70 dark:hover:text-white dark:hover:bg-white/5"
                                 >
                                   {submenuItem.title}
                                 </Link>
