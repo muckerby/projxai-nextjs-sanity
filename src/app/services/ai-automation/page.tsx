@@ -29,7 +29,7 @@ export default function AiAutomationPage() {
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
               Every hour your team spends on manual, repetitive tasks is an hour not spent on customers, sales, and growth. We identify what AI can automate in your business — and build it.
             </p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Book a free discovery call →
             </Link>
           </div>
@@ -85,7 +85,7 @@ export default function AiAutomationPage() {
               The discovery call starts with a simple question: where does your team spend time doing the same thing over and over? The answer usually surprises people.
             </p>
             <p className="mb-8 text-sm text-white/60">From $2,000 AUD per automation project. Quoted per project after audit.</p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Book a free automation audit →
             </Link>
           </div>

@@ -133,10 +133,10 @@ export default function PrivacyPage() {
               </p>
               <p className="mt-3">
                 <a
-                  href="mailto:michaelc@projxai.com.au?subject=Privacy%20Enquiry"
+                  href="/contact"
                   className="text-primary font-medium hover:underline"
                 >
-                  michaelc@projxai.com.au
+                  Contact us via our contact page →
                 </a>
               </p>
               <p className="mt-2 text-sm">

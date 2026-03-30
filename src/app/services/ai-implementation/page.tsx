@@ -29,7 +29,7 @@ export default function AiImplementationPage() {
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
               You know what you want AI to do in your business. You just need someone with the technical capability to build it properly — and hand it over so your team can run it independently.
             </p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Book a free discovery call →
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default function AiImplementationPage() {
           <div className="mx-auto max-w-[600px] text-center">
             <h2 className="mb-5 text-3xl font-bold text-white">Have something specific in mind?</h2>
             <p className="mb-8 text-base text-white/70">Investment from $2,500 AUD — quoted per project after scoping call.</p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Let&apos;s scope it out — book a call →
             </Link>
           </div>

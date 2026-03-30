@@ -57,7 +57,7 @@ Next.js 16 App Router, React 19, TypeScript 5.3, Tailwind CSS v4, next-themes (d
 | `/blog/[slug]` | ✅ Exists (Sanity) |
 | `/privacy` | ✅ Built — Australian Privacy Act 1988 compliant |
 | `/terms` | ✅ Built — Queensland law, limitation of liability |
-| `/contact` | ✅ Built — email CTA, link to /work-with-us |
+| `/contact` | ✅ Built — two-form page (general + consulting), Turnstile, Sanity lead capture, Resend notification |
 
 ### Key Components (`src/components/`)
 
@@ -77,12 +77,14 @@ Path alias: `@/*` → `./src/*`
 
 ### Sanity CMS
 
-Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
+Schemas in `sanity/schemaTypes/` (author, category, lead, post, siteSettings).
 - Project ID: `zma68sbk` | Dataset: `production`
 - Studio URL: https://projxai.sanity.studio/ ✅ deployed
 - Studio App ID: `ozd8jpo1zrtzrafj8mki2f7d`
 - Config files: `sanity.config.ts`, `sanity.cli.ts` (studioHost: `projxai`)
 - Env vars in `.env` (gitignored) and Vercel project settings
+- **SANITY_API_TOKEN** must be added to Vercel env vars — get value from sanity.io/manage → project zma68sbk → API → Tokens (needs write permission)
+- **RESEND_API_KEY**, **NEXT_PUBLIC_TURNSTILE_SITE_KEY**, **TURNSTILE_SECRET_KEY** also required in Vercel env vars
 
 ### Pending Work (Session 5+)
 
@@ -106,3 +108,4 @@ Schemas in `sanity/schemaTypes/` (author, category, post, siteSettings).
 | 2 | 25 Mar 2026 | CLAUDE.md, SVG logo, nav restructured, #6B3FE7 brand colour across codebase |
 | 3 | 27 Mar 2026 | docs/ folder, logo.png (transparent), favicon.ico, Services dropdown, homepage rebuilt, 8 pages built (/services full, /about, /work-with-us, /tools), Sanity schemas created, Footer updated, Sanity Studio deployed to projxai.sanity.studio |
 | 4 | 30 Mar 2026 | Logo fix (40px, opacity 1), Services + Tools dropdowns improved (z-index, shadow, hover), Collicorp → ProjxAI brand sweep across all pages, email updated to michaelc@projxai.com.au, /about reframed to brand/mission focus, /privacy + /terms + /contact pages built, full OG meta tags on all pages, footer /contact link updated, CLAUDE.md updated |
+| 5 | 30 Mar 2026 | Contact form system: lead Sanity schema, /api/contact route (Turnstile verify + Sanity write + Resend email), /contact rebuilt as two-form page (general + consulting enquiry), visible email addresses removed from all pages, service page CTAs updated to /contact#consulting, work-with-us email replaced with /contact#consulting link |

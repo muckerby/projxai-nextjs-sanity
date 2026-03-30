@@ -31,7 +31,7 @@ export default function AiConsultingPage() {
               Most Australian SMEs know they need to act on AI — but don&apos;t know what to do first. We cut through the noise and give you a clear, practical roadmap built around your specific business.
             </p>
             <Link
-              href="/work-with-us"
+              href="/contact#consulting"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Book a free discovery call →
@@ -231,7 +231,7 @@ export default function AiConsultingPage() {
               Book a free 30-minute discovery call. No obligation, no sales pitch — just a focused conversation about where AI can genuinely help your business.
             </p>
             <Link
-              href="/work-with-us"
+              href="/contact#consulting"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Book your free call →

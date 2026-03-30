@@ -29,7 +29,7 @@ export default function AiContentPage() {
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
               The businesses winning at content marketing in 2026 aren&apos;t working harder — they&apos;re using AI workflows that produce consistent, quality output at scale. We build those workflows for Australian marketing teams and agencies.
             </p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Book a free discovery call →
             </Link>
           </div>
@@ -85,7 +85,7 @@ export default function AiContentPage() {
           <div className="mx-auto max-w-[600px] text-center">
             <h2 className="mb-5 text-3xl font-bold text-white">Ready to scale your content without scaling your headcount?</h2>
             <p className="mb-8 text-base text-white/70">From $1,500 AUD — quoted after discovery call based on content types and team size.</p>
-            <Link href="/work-with-us" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
+            <Link href="/contact#consulting" className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80">
               Book a free discovery call →
             </Link>
           </div>

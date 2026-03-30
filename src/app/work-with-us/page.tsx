@@ -27,12 +27,12 @@ export default function WorkWithUsPage() {
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
               No sales pitch. No obligation. Just a focused conversation about where AI can genuinely help your business — and what to do first.
             </p>
-            <a
-              href="mailto:michaelc@projxai.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
+            <Link
+              href="/contact#consulting"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Book your free discovery call →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -159,19 +159,16 @@ export default function WorkWithUsPage() {
       <section className="bg-dark py-20">
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
-            <h2 className="mb-5 text-3xl font-bold text-white">Book your free 30-minute call</h2>
-            <p className="mb-2 text-base text-white/70">
-              Email us directly and we&apos;ll respond within 1 business day to confirm a time.
-            </p>
+            <h2 className="mb-5 text-3xl font-bold text-white">Ready to get started?</h2>
             <p className="mb-8 text-base text-white/70">
-              <strong className="text-white">michaelc@projxai.com.au</strong>
+              Fill in a quick form and we&apos;ll get back to you within 1 business day to arrange your free 30-minute discovery call.
             </p>
-            <a
-              href="mailto:michaelc@projxai.com.au?subject=ProjxAI%20Discovery%20Call%20Request"
+            <Link
+              href="/contact#consulting"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
-              Send an email →
-            </a>
+              Get in touch →
+            </Link>
             <div className="mt-8 space-y-1 text-sm text-white/50">
               <p>ABN: 80 398 642 662 | Brisbane, QLD, Australia</p>
               <p>Response within 1 business day</p>

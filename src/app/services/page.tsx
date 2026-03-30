@@ -199,7 +199,7 @@ export default function ServicesPage() {
               Start with a free discovery call. We&apos;ll ask the right questions, understand your situation, and recommend exactly where to start.
             </p>
             <Link
-              href="/work-with-us"
+              href="/contact#consulting"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
               Book a free 30-min call →
