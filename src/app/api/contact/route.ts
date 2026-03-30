@@ -105,7 +105,7 @@ ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
     `.trim()
 
     await resend.emails.send({
-      from: 'ProjxAI Leads <onboarding@resend.dev>',
+      from: 'ProjxAI <noreply@projxai.com.au>',
       to: 'michaelc@projxai.com.au',
       subject,
       html: emailBody,
