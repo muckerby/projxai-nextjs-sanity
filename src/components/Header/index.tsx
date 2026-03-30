@@ -59,7 +59,7 @@ const Header = () => {
                 <img
                   src="/images/logo.png"
                   alt="ProjxAI"
-                  style={{ height: "40px", width: "auto", opacity: 1 }}
+                  style={{ height: "44px", width: "auto", opacity: 1 }}
                 />
               </Link>
             </div>
@@ -69,7 +69,7 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden"
+                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 md:hidden"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
@@ -89,19 +89,19 @@ const Header = () => {
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 md:visible md:static md:w-auto md:border-none md:!bg-transparent md:p-0 md:opacity-100 ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-0"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12">
+                  <ul className="block md:flex md:space-x-12">
                     {menuData.map((menuItem, index) => (
                       <li key={index} className="group relative">
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                            className={`flex py-2 text-base md:mr-0 md:inline-flex md:px-0 md:py-6 ${
                               usePathName === menuItem.path
                                 ? "text-primary dark:text-white"
                                 : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
@@ -113,7 +113,7 @@ const Header = () => {
                           <>
                             <p
                               onClick={() => handleSubmenu(index)}
-                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
+                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base md:mr-0 md:inline-flex md:px-0 md:py-6 dark:text-white/70 dark:group-hover:text-white"
                             >
                               {menuItem.title}
                               <span className="pl-3">
@@ -128,7 +128,7 @@ const Header = () => {
                               </span>
                             </p>
                             <div
-                              className={`submenu dark:bg-dark relative top-full left-0 rounded-lg bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:z-50 lg:block lg:w-[260px] lg:rounded-lg lg:border lg:border-stroke lg:p-2 lg:opacity-0 lg:shadow-xl lg:group-hover:visible lg:group-hover:top-full dark:lg:border-stroke-dark ${
+                              className={`submenu dark:bg-dark relative top-full left-0 rounded-lg bg-white transition-[top] duration-300 group-hover:opacity-100 md:invisible md:absolute md:top-[110%] md:z-50 md:block md:w-[260px] md:rounded-lg md:border md:border-stroke md:p-2 md:opacity-0 md:shadow-xl md:group-hover:visible md:group-hover:top-full dark:md:border-stroke-dark ${
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
@@ -149,7 +149,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
+              <div className="flex items-center justify-end pr-16 md:pr-0">
                 <div>
                   <ThemeToggler />
                 </div>
