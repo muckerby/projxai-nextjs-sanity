@@ -57,9 +57,9 @@ const Header = () => {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo-navbar.png"
                   alt="ProjxAI"
-                  style={{ height: "44px", width: "auto", opacity: 1 }}
+                  style={{ height: "44px", width: "auto" }}
                 />
               </Link>
             </div>
