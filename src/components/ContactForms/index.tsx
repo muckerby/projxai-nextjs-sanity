@@ -5,6 +5,10 @@ import { Turnstile } from '@marsidev/react-turnstile'
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
+function isValidEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
+}
+
 const inputClass =
   'w-full rounded-md border border-stroke bg-white px-4 py-3 text-base text-body-color outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-stroke-dark dark:bg-dark dark:text-body-color-dark dark:focus:border-primary'
 const labelClass = 'mb-1 block text-sm font-medium text-black dark:text-white'
@@ -16,6 +20,7 @@ type FormState = 'idle' | 'submitting' | 'success' | 'error'
 export function GeneralEnquiryForm() {
   const [state, setState] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [emailError, setEmailError] = useState('')
   const [turnstileToken, setTurnstileToken] = useState('')
   const [form, setForm] = useState({
     name: '',
@@ -26,10 +31,15 @@ export function GeneralEnquiryForm() {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if (e.target.name === 'email') setEmailError('')
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (!isValidEmail(form.email)) {
+      setEmailError('Please enter a valid email address.')
+      return
+    }
     if (!turnstileToken) {
       setErrorMsg('Please complete the security check.')
       return
@@ -103,6 +113,9 @@ export function GeneralEnquiryForm() {
           placeholder="jane@yourbusiness.com.au"
           className={inputClass}
         />
+        {emailError && (
+          <p className="mt-1 text-sm text-red-500">{emailError}</p>
+        )}
       </div>
       <div>
         <label htmlFor="g-business" className={labelClass}>
@@ -161,6 +174,7 @@ export function GeneralEnquiryForm() {
 export function ConsultingEnquiryForm() {
   const [state, setState] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [emailError, setEmailError] = useState('')
   const [turnstileToken, setTurnstileToken] = useState('')
   const [form, setForm] = useState({
     name: '',
@@ -176,10 +190,15 @@ export function ConsultingEnquiryForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if (e.target.name === 'email') setEmailError('')
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (!isValidEmail(form.email)) {
+      setEmailError('Please enter a valid email address.')
+      return
+    }
     if (!turnstileToken) {
       setErrorMsg('Please complete the security check.')
       return
@@ -254,6 +273,9 @@ export function ConsultingEnquiryForm() {
           placeholder="jane@yourbusiness.com.au"
           className={inputClass}
         />
+        {emailError && (
+          <p className="mt-1 text-sm text-red-500">{emailError}</p>
+        )}
       </div>
       <div>
         <label htmlFor="c-business" className={labelClass}>
