@@ -59,6 +59,8 @@ const Header = () => {
                 <img
                   src="/images/logo-navbar.png"
                   alt="ProjxAI"
+                  width={220}
+                  height={44}
                   style={{ height: "44px", width: "auto" }}
                 />
               </Link>
