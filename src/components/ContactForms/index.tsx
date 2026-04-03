@@ -780,9 +780,6 @@ export function ConsultingEnquiryForm() {
           onExpire={() => setTurnstileToken('')}
         />
       </div>
-      {phase === 'error' && (
-        <p className="text-sm text-red-500">{errorMsg}</p>
-      )}
       <button
         type="submit"
         disabled={phase === 'submitting'}
