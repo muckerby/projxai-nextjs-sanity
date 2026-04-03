@@ -1,5 +1,4 @@
 import AudienceStrip from "@/components/AudienceStrip";
-import Blog from "@/components/Blog";
 import ConsultingCTA from "@/components/ConsultingCTA";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Features from "@/components/Features";
@@ -30,7 +29,6 @@ export default function Home() {
       <Features />
       <ToolTeasers />
       <StatsStrip />
-      <Blog />
       <ConsultingCTA />
     </>
   );
