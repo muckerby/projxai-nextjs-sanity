@@ -33,29 +33,29 @@ const audiences = [
 
 const AudienceStrip = () => {
   return (
-    <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
+    <section className="bg-[#f0f2f9] py-16 dark:bg-[#171c28] md:py-20">
       <div className="container">
-        <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white">
+        <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
           Who We Work With
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {audiences.map((a) => (
             <div
               key={a.label}
-              className="rounded-lg border border-stroke bg-white p-6 shadow-one dark:border-stroke-dark dark:bg-dark"
+              className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-[#1d2430]"
             >
-              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#6B3FE7]">
                 {a.label}
               </p>
-              <h3 className="mb-3 text-base font-bold leading-snug text-black dark:text-white">
+              <h3 className="mb-3 text-base font-bold leading-snug text-gray-900 dark:text-white">
                 {a.heading}
               </h3>
-              <p className="mb-4 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+              <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-300">
                 {a.body}
               </p>
               <Link
                 href={a.link}
-                className="text-primary inline-flex items-center text-sm font-medium hover:underline"
+                className="text-[#6B3FE7] inline-flex items-center text-sm font-medium hover:underline"
               >
                 {a.linkText}
                 <svg className="ml-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -6,7 +6,7 @@ const stats = [
 
 const StatsStrip = () => {
   return (
-    <section className="bg-primary py-14">
+    <section className="bg-[#6B3FE7] py-14">
       <div className="container">
         <div className="flex flex-col items-center justify-around gap-10 sm:flex-row">
           {stats.map((s) => (

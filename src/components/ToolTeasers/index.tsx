@@ -4,7 +4,7 @@ const ToolTeasers = () => {
   return (
     <>
       {/* ROAS Calculator Teaser */}
-      <section className="bg-dark py-16 md:py-20">
+      <section className="bg-[#1d2430] py-16 md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px] text-center">
             <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-1 text-sm font-medium text-primary">
@@ -18,7 +18,7 @@ const ToolTeasers = () => {
             </p>
             <Link
               href="/tools/roas-calculator"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              className="inline-block rounded-xs bg-[#6B3FE7] px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-[#5a34c5]"
             >
               Try the ROAS Calculator →
             </Link>
@@ -27,7 +27,7 @@ const ToolTeasers = () => {
       </section>
 
       {/* Competitor Espionage Engine Teaser */}
-      <section className="bg-bg-color-dark py-16 md:py-20">
+      <section className="bg-[#171c28] py-16 md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px] text-center">
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-white/70">

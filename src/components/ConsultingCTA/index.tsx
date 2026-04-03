@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ConsultingCTA = () => {
   return (
-    <section className="bg-dark py-20">
+    <section className="bg-[#1d2430] py-20">
       <div className="container">
         <div className="mx-auto max-w-[640px] text-center">
           <h2 className="mb-5 text-3xl font-bold text-white md:text-4xl">
