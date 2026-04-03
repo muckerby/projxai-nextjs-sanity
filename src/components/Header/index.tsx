@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
 const Header = () => {
@@ -60,9 +59,9 @@ const Header = () => {
                   <img
                     src="/images/logo-navbar.png"
                     alt="ProjxAI"
-                    width={280}
-                    height={56}
-                    style={{ height: "56px", width: "auto", maxWidth: "280px", flexShrink: 0 }}
+                    width={320}
+                    height={64}
+                    style={{ height: "64px", width: "auto" }}
                   />
                 </div>
               </Link>
@@ -152,11 +151,6 @@ const Header = () => {
                     ))}
                   </ul>
                 </nav>
-              </div>
-              <div className="flex items-center justify-end pr-16 md:pr-0">
-                <div>
-                  <ThemeToggler />
-                </div>
               </div>
             </div>
           </div>
