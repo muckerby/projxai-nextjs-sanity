@@ -43,11 +43,12 @@ Next.js 16 App Router, React 19, TypeScript 5.3, Tailwind CSS v4, next-themes (d
 | Route | Status |
 |---|---|
 | `/` | ✅ Built — Hero, AudienceStrip, Features (3-pillar), ToolTeasers, StatsStrip, Blog, ConsultingCTA |
-| `/services` | ✅ Built — 4-service grid, process, CTA |
-| `/services/ai-consulting` | ✅ Built — full copy |
-| `/services/ai-implementation` | ✅ Built |
-| `/services/ai-content` | ✅ Built |
-| `/services/ai-automation` | ✅ Built |
+| `/services` | ✅ Built — 5-service grid, process, CTA |
+| `/services/ai-consulting` | ✅ Built — AI Readiness Audit (from $750) |
+| `/services/ai-implementation` | ✅ Built — AI Strategy & Roadmap (from $2,500) |
+| `/services/ai-content` | ✅ Built — AI Workflow Implementation (from $3,000/workflow) |
+| `/services/ai-automation` | ✅ Built — AI Retainer (from $1,000/month) |
+| `/services/ai-infrastructure` | ✅ Built — AI Infrastructure & Hosting (from $1,500) |
 | `/about` | ✅ Built — full copy |
 | `/work-with-us` | ✅ Built — email CTA (Calendly pending) |
 | `/tools` | ✅ Built — ROAS + Espionage cards |
@@ -86,9 +87,21 @@ Schemas in `sanity/schemaTypes/` (author, category, lead, post, siteSettings).
 - **SANITY_API_TOKEN** must be added to Vercel env vars — get value from sanity.io/manage → project zma68sbk → API → Tokens (needs write permission)
 - **RESEND_API_KEY**, **NEXT_PUBLIC_TURNSTILE_SITE_KEY**, **TURNSTILE_SECRET_KEY** also required in Vercel env vars
 
-### Pending Work (Session 5+)
+### Smart Lead Pipeline (`/contact`)
 
-- Calendly embed on `/work-with-us` (account needed)
+After initial consulting enquiry form submits successfully:
+1. **Path A — Book a Call**: opens `https://cal.com/michael-collicoat/30min` in new tab, updates Sanity lead with `leadPath='booking'`
+2. **Path B — Start Intake**: shows 6-question inline intake form (industry, team size, AI maturity, areas of interest, biggest challenge, timeframe)
+3. **On intake submit**: patches Sanity lead record, sends enriched email with all answers + research brief to michaelc@projxai.com.au
+
+API routes:
+- `POST /api/contact` — initial form (returns `leadId` in response)
+- `POST /api/intake` — path choice + intake submission
+
+### Pending Work (Session 7+)
+
+- `npx sanity deploy` — redeploy Sanity Studio to pick up new lead schema fields
+- Cal.com account setup at cal.com/michael-collicoat (Michael to do)
 - Michael's headshot (400×400px) — replace gradient placeholder on /about and /work-with-us
 - `/tools/roas-calculator` — functional build (Phase 2)
 - `/tools/competitor-espionage-engine` — functional build (Phase 3)
@@ -109,3 +122,4 @@ Schemas in `sanity/schemaTypes/` (author, category, lead, post, siteSettings).
 | 3 | 27 Mar 2026 | docs/ folder, logo.png (transparent), favicon.ico, Services dropdown, homepage rebuilt, 8 pages built (/services full, /about, /work-with-us, /tools), Sanity schemas created, Footer updated, Sanity Studio deployed to projxai.sanity.studio |
 | 4 | 30 Mar 2026 | Logo fix (40px, opacity 1), Services + Tools dropdowns improved (z-index, shadow, hover), Collicorp → ProjxAI brand sweep across all pages, email updated to michaelc@projxai.com.au, /about reframed to brand/mission focus, /privacy + /terms + /contact pages built, full OG meta tags on all pages, footer /contact link updated, CLAUDE.md updated |
 | 5 | 30 Mar 2026 | Contact form system: lead Sanity schema, /api/contact route (Turnstile verify + Sanity write + Resend email), /contact rebuilt as two-form page (general + consulting enquiry), visible email addresses removed from all pages, service page CTAs updated to /contact#consulting, work-with-us email replaced with /contact#consulting link |
+| 6 | 3 Apr 2026 | Smart lead pipeline: Sanity lead schema expanded (industry, aiMaturity, areasOfInterest, biggestChallenge, timeframe, leadPath, calBookingId), /api/intake route, /contact rebuilt with two-path flow (Book a Call via Cal.com + 6-question smart intake), homepage rewrite (new hero, 3-pillar features, audience strip, stats, CTA), all 4 service pages rewritten with real copy and pricing, new /services/ai-infrastructure page, nav updated, services index updated |

@@ -2,17 +2,25 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Consulting & Strategy Australia | ProjxAI",
+  title: "AI Readiness Audit | ProjxAI",
   description:
-    "Not sure where AI fits in your business? We audit your operations and deliver a practical implementation roadmap built around your specific business.",
+    "Understand exactly where AI fits in your business before spending a dollar on tools. A structured 2-hour assessment with a prioritised opportunity report.",
   openGraph: {
-    title: "AI Consulting & Strategy Australia | ProjxAI",
+    title: "AI Readiness Audit | ProjxAI",
     description:
-      "Not sure where AI fits in your business? We audit your operations and deliver a practical implementation roadmap built around your specific business.",
+      "Understand exactly where AI fits in your business before spending a dollar on tools. A structured 2-hour assessment with a prioritised opportunity report.",
     url: "https://www.projxai.com.au/services/ai-consulting",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
+
+const included = [
+  "2-hour structured assessment of your current workflows and tools",
+  "Data audit — where your business data lives and how AI-ready it is",
+  "Team capacity review — who will manage and use AI day to day",
+  "Prioritised opportunity report — 3 to 5 specific AI use cases ranked by ROI potential and ease of implementation",
+  "Optional add-on: AI Tool Stack Review — audit of tools you already pay for that have unused AI features ($750 bundled)",
+];
 
 export default function AiConsultingPage() {
   return (
@@ -22,38 +30,36 @@ export default function AiConsultingPage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <span className="text-primary mb-4 block text-sm font-semibold uppercase tracking-widest">
-              AI Consulting &amp; Strategy
+              AI Readiness Audit
             </span>
             <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              You know AI is important. We&apos;ll show you exactly where to start.
+              AI Readiness Audit
             </h1>
+            <p className="mb-4 text-xl font-medium text-black dark:text-white">
+              Understand exactly where AI fits in your business before spending a dollar on tools.
+            </p>
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              Most Australian SMEs know they need to act on AI — but don&apos;t know what to do first. We cut through the noise and give you a clear, practical roadmap built around your specific business.
+              Most businesses that fail at AI do not fail because they chose the wrong tool. They fail because they did not understand their own processes, data, or team readiness before they started.
             </p>
             <Link
-              href="/contact#consulting"
+              href="/contact"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
-              Book a free discovery call →
+              Book Your Audit →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* The Problem */}
+      {/* What is included */}
       <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">
-              Sound familiar?
+            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
+              What is included
             </h2>
-            <ul className="mb-8 space-y-4">
-              {[
-                "You've read about AI but struggle to see where it fits in your specific business",
-                "You've tried a few tools but haven't seen the results you expected",
-                "Your competitors seem to be moving faster and you're not sure why",
-                "You don't have an in-house tech team — and don't want to need one",
-              ].map((item) => (
+            <ul className="space-y-4">
+              {included.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
                   <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -62,77 +68,34 @@ export default function AiConsultingPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              This is where most Australian SMEs sit right now. Not behind because they&apos;re not smart or motivated — behind because the AI landscape is noisy, confusing, and full of solutions looking for problems. Our job is to cut through that and find what actually works for your business.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* What You Get */}
+      {/* How it works */}
       <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              What&apos;s included in an AI Consulting engagement
+              How it works
             </h2>
             <div className="space-y-8">
               {[
                 {
-                  title: "AI Opportunity Audit",
-                  body: "We map your current operations, identify the 3-5 highest-value AI opportunities, and score them by effort vs. impact. You'll know exactly where to start and why.",
+                  step: "Discovery Call (Free, 30 min)",
+                  body: "We learn about your business and confirm the audit is the right starting point. You leave with 3 insights regardless of whether we work together.",
                 },
                 {
-                  title: "Implementation Roadmap",
-                  body: "A prioritised 90-day plan with specific tools, workflows, and milestones. Written in plain English — not a tech spec. Something your team can actually act on.",
+                  step: "2-Hour Assessment",
+                  body: "A structured working session — remote or in person. We go through your operations, tools, data, and team. You answer questions; we listen and map.",
                 },
                 {
-                  title: "Tool & Platform Recommendations",
-                  body: "We recommend specific tools based on your budget, your team's technical capability, and your business goals. No vendor bias — we recommend what actually works.",
+                  step: "Opportunity Report Delivery",
+                  body: "Within 3 business days, you receive a written report with 3 to 5 prioritised AI opportunities, ranked by ROI potential and implementation effort.",
                 },
                 {
-                  title: "90-Day Check-in",
-                  body: "We follow up at 90 days to review progress, troubleshoot blockers, and adjust the roadmap based on what you've learned. Implementation is ongoing, not a one-off event.",
-                },
-              ].map((item) => (
-                <div key={item.title} className="border-l-4 border-primary pl-6">
-                  <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              The process
-            </h2>
-            <div className="space-y-8">
-              {[
-                {
-                  step: "Step 1 — Discovery Call (Free, 30 min)",
-                  body: "We learn about your business, your goals, and your current AI experience. You leave with 3 actionable insights regardless of whether we work together.",
-                },
-                {
-                  step: "Step 2 — Business Audit (3–5 business days)",
-                  body: "We analyse your operations in depth — your processes, your team structure, your current tools, and your competitive landscape. We identify where AI can deliver measurable results.",
-                },
-                {
-                  step: "Step 3 — Roadmap Delivery",
-                  body: "We present your AI Implementation Roadmap in a 60-minute working session — walking through priorities, rationale, and next steps. You receive the full document to keep.",
-                },
-                {
-                  step: "Step 4 — Optional: Implementation Support",
-                  body: "Many clients continue with us for implementation — building the tools, workflows, and systems identified in the roadmap. Quoted separately based on scope.",
+                  step: "Optional: Continue to Implementation",
+                  body: "Many clients use the report to move straight to implementation. Quoted separately based on the opportunities identified.",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5">
@@ -154,32 +117,6 @@ export default function AiConsultingPage() {
         </div>
       </section>
 
-      {/* Who It's For */}
-      <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">
-              This engagement is right for you if...
-            </h2>
-            <ul className="space-y-4">
-              {[
-                "You're an SME owner (5–100 staff) who wants a clear AI strategy without the consultant jargon",
-                "You're an agency that wants to understand how to offer AI services to your own clients",
-                "You've tried AI tools independently and haven't seen the results you expected",
-                "You want an outside perspective on where your business is losing time and money to manual processes",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
-                  <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* Investment */}
       <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
         <div className="container">
@@ -188,7 +125,10 @@ export default function AiConsultingPage() {
               Investment
             </h2>
             <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              AI Consulting &amp; Strategy engagements start from <strong className="text-black dark:text-white">$1,500 AUD</strong>. Final investment depends on business complexity and engagement scope. All projects are quoted after the free discovery call — no surprises.
+              Starting from <strong className="text-black dark:text-white">$750 AUD</strong>. Includes the 2-hour assessment and written opportunity report.
+            </p>
+            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+              Optional add-on: AI Tool Stack Review bundled at $750. Final investment confirmed after discovery call based on business complexity.
             </p>
             <p className="text-sm text-body-color dark:text-body-color-dark">
               GST applicable. ABN 80 398 642 662.
@@ -202,17 +142,17 @@ export default function AiConsultingPage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white">
-              Related resources
+              Next steps after your audit
             </h3>
             <ul className="space-y-2 text-base text-body-color dark:text-body-color-dark">
               <li>
-                <Link href="/tools/roas-calculator" className="text-primary hover:underline">
-                  Free tool: ROAS Calculator →
+                <Link href="/services/ai-implementation" className="text-primary hover:underline">
+                  AI Strategy &amp; Roadmap — 90-day plan →
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-implementation" className="text-primary hover:underline">
-                  Next step: AI Implementation →
+                <Link href="/services/ai-content" className="text-primary hover:underline">
+                  AI Workflow Implementation — build it →
                 </Link>
               </li>
             </ul>
@@ -225,16 +165,16 @@ export default function AiConsultingPage() {
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
             <h2 className="mb-5 text-3xl font-bold text-white">
-              Ready to get clarity on your AI strategy?
+              Ready to find out where AI fits in your business?
             </h2>
             <p className="mb-8 text-base leading-relaxed text-white/70">
-              Book a free 30-minute discovery call. No obligation, no sales pitch — just a focused conversation about where AI can genuinely help your business.
+              Start with a free 30-minute discovery call. No obligation. We will confirm the audit is the right starting point before you spend anything.
             </p>
             <Link
-              href="/contact#consulting"
+              href="/contact"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
-              Book your free call →
+              Book Your Audit →
             </Link>
             <p className="mt-4 text-sm text-white/50">
               Michael Collicoat | ProjxAI | Brisbane, QLD | Response within 1 business day

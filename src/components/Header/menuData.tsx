@@ -38,6 +38,12 @@ const menuData: Menu[] = [
       },
       {
         id: 25,
+        title: "AI Infrastructure & Hosting",
+        path: "/services/ai-infrastructure",
+        newTab: false,
+      },
+      {
+        id: 26,
         title: "All Services",
         path: "/services",
         newTab: false,

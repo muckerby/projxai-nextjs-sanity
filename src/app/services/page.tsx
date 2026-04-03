@@ -58,11 +58,23 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
       </svg>
     ),
-    title: "AI Implementation",
-    audience: "Businesses that know what they want — and need someone to build it",
-    body: "You have the vision. We have the technical capability to make it real. From custom tools to integrated AI systems, we build and hand over.",
+    title: "AI Strategy & Roadmap",
+    audience: "Businesses that need a clear 90-day plan before they build",
+    body: "Full process mapping, AI tool selection, and a week-by-week implementation roadmap. Built around your business, not a template.",
     price: "From $2,500",
     link: "/services/ai-implementation",
+  },
+  {
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+      </svg>
+    ),
+    title: "AI Infrastructure & Hosting",
+    audience: "Businesses overpaying for legacy services or needing a smarter stack",
+    body: "Cloud hosting advisory, local AI deployment, and managed infrastructure. We regularly find 40–60% savings on existing spend.",
+    price: "From $1,500",
+    link: "/services/ai-infrastructure",
   },
 ];
 

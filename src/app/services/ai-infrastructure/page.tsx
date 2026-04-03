@@ -2,27 +2,27 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Retainer | ProjxAI",
+  title: "AI Infrastructure & Hosting | ProjxAI",
   description:
-    "Your AI department without the hire. Monthly performance reviews, workflow optimisation, one new workflow build per quarter. Starting from $1,000/month.",
+    "Run AI in your business without the enterprise price tag. Cloud hosting advisory, local AI deployment, and managed hosting via retainer. Starting from $1,500.",
   openGraph: {
-    title: "AI Retainer | ProjxAI",
+    title: "AI Infrastructure & Hosting | ProjxAI",
     description:
-      "Your AI department without the hire. Monthly performance reviews, workflow optimisation, one new workflow build per quarter. Starting from $1,000/month.",
-    url: "https://www.projxai.com.au/services/ai-automation",
+      "Run AI in your business without the enterprise price tag. Cloud hosting advisory, local AI deployment, and managed hosting via retainer. Starting from $1,500.",
+    url: "https://www.projxai.com.au/services/ai-infrastructure",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 const included = [
-  "Monthly performance review of all running AI systems",
-  "Prompt and workflow optimisation",
-  "New tool evaluation — stay current without doing the research yourself",
-  "One new workflow build per quarter",
-  "Priority access for new projects and urgent requirements",
+  "Cloud hosting advisory (Azure, AWS, or Google Cloud)",
+  "Local AI deployment options for businesses with privacy requirements",
+  "VM and container setup for AI workloads",
+  "Cost comparison vs current spend — we regularly find 40–60% savings",
+  "Ongoing managed hosting available via retainer",
 ];
 
-export default function AiAutomationPage() {
+export default function AiInfrastructurePage() {
   return (
     <>
       {/* Hero */}
@@ -30,22 +30,22 @@ export default function AiAutomationPage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <span className="text-primary mb-4 block text-sm font-semibold uppercase tracking-widest">
-              AI Retainer
+              AI Infrastructure &amp; Hosting
             </span>
             <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              AI Retainer
+              AI Infrastructure &amp; Hosting
             </h1>
             <p className="mb-4 text-xl font-medium text-black dark:text-white">
-              Your AI department. Without the hire.
+              Run AI in your business without the enterprise price tag.
             </p>
             <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              AI systems need maintenance, optimisation, and evolution. Without someone watching them, they drift. Without someone improving them, you fall behind. Most businesses cannot afford a full-time AI specialist. The retainer fills that gap.
+              Many businesses assume AI requires expensive infrastructure or complex cloud setups. In 2026, that is not true. The right stack — properly configured — costs a fraction of what most businesses currently pay for legacy services.
             </p>
             <Link
               href="/contact"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
-              Discuss a Retainer →
+              Talk Infrastructure →
             </Link>
           </div>
         </div>
@@ -82,20 +82,20 @@ export default function AiAutomationPage() {
             <div className="space-y-8">
               {[
                 {
-                  step: "Onboarding",
-                  body: "We audit your existing AI systems, document everything, and establish a baseline for performance. Usually takes 1–2 weeks.",
+                  step: "Current Stack Review",
+                  body: "We audit what you are currently paying for — hosting, SaaS, storage, software licences. Most businesses find 40–60% of spend is on services they could replace or consolidate.",
                 },
                 {
-                  step: "Monthly Review",
-                  body: "A structured monthly session to review how your AI systems are performing, what has changed in your business, and what needs adjusting.",
+                  step: "Infrastructure Design",
+                  body: "We design a hosting architecture matched to your AI workloads, data privacy requirements, and budget. Cloud, hybrid, or local — whichever makes sense.",
                 },
                 {
-                  step: "Ongoing Optimisation",
-                  body: "Between reviews we handle prompt updates, workflow tweaks, tool upgrades, and anything that needs attention. You get responses within 1 business day.",
+                  step: "Setup & Configuration",
+                  body: "We stand up the environment, configure security, and connect it to your AI tools and workflows. Documented and handed over.",
                 },
                 {
-                  step: "Quarterly Build",
-                  body: "One new workflow or AI integration each quarter, scoped and built as part of your retainer at no extra cost.",
+                  step: "Optional: Managed Hosting",
+                  body: "For businesses that want ongoing management, we offer managed hosting via our monthly retainer. Monitoring, updates, and support included.",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5">
@@ -125,11 +125,37 @@ export default function AiAutomationPage() {
               Investment
             </h2>
             <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Starting from <strong className="text-black dark:text-white">$1,000 AUD per month</strong>. Exact scope and pricing confirmed after a discovery call. Month-to-month with no lock-in contracts.
+              Starting from <strong className="text-black dark:text-white">$1,500 AUD</strong> for the initial stack review and infrastructure design. Setup costs quoted after scoping based on complexity.
+            </p>
+            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+              Managed hosting available via monthly retainer — priced separately based on requirements.
             </p>
             <p className="text-sm text-body-color dark:text-body-color-dark">
               GST applicable. ABN 80 398 642 662.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Related */}
+      <section className="bg-white py-12 dark:bg-gray-dark">
+        <div className="container">
+          <div className="mx-auto max-w-[720px]">
+            <h3 className="mb-5 text-xl font-bold text-black dark:text-white">
+              Often paired with
+            </h3>
+            <ul className="space-y-2 text-base text-body-color dark:text-body-color-dark">
+              <li>
+                <Link href="/services/ai-content" className="text-primary hover:underline">
+                  AI Workflow Implementation — build what runs on it →
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-automation" className="text-primary hover:underline">
+                  AI Retainer — ongoing management and optimisation →
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -139,16 +165,16 @@ export default function AiAutomationPage() {
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
             <h2 className="mb-5 text-3xl font-bold text-white">
-              Want AI that keeps improving, not just getting built?
+              Paying too much for infrastructure that is holding you back?
             </h2>
             <p className="mb-8 text-base leading-relaxed text-white/70">
-              Start with a conversation about what AI systems you currently have or are planning. We will scope a retainer that fits your business and budget.
+              Tell us what you are currently running. We will tell you honestly whether there is a better, cheaper option — and build it if there is.
             </p>
             <Link
               href="/contact"
               className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
             >
-              Discuss a Retainer →
+              Talk Infrastructure →
             </Link>
             <p className="mt-4 text-sm text-white/50">
               Michael Collicoat | ProjxAI | Brisbane, QLD | Response within 1 business day
