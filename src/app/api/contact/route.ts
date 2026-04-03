@@ -111,7 +111,7 @@ ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
       html: emailBody,
     })
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, leadId: lead._id })
   } catch (err) {
     console.error('[contact/route] error:', err)
     return NextResponse.json(

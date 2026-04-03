@@ -171,29 +171,118 @@ export function GeneralEnquiryForm() {
 
 // ─── Consulting Enquiry Form ─────────────────────────────────────────────────
 
+type ConsultingPhase =
+  | 'form'
+  | 'submitting'
+  | 'path-choice'
+  | 'booking-done'
+  | 'intake'
+  | 'intake-submitting'
+  | 'intake-done'
+  | 'error'
+
+type IntakeData = {
+  industry: string
+  teamSize: string
+  aiMaturity: string
+  areasOfInterest: string[]
+  biggestChallenge: string
+  biggestChallengeOther: string
+  timeframe: string
+}
+
+const INDUSTRIES = [
+  'Accommodation & Tourism',
+  'Automotive',
+  'Construction & Trades',
+  'eCommerce & Retail',
+  'Education & Training',
+  'Finance & Insurance',
+  'Food & Hospitality',
+  'Health & Wellbeing',
+  'Legal & Professional Services',
+  'Marketing & Advertising',
+  'Manufacturing & Logistics',
+  'Property & Real Estate',
+  'Technology & Software',
+  'Other',
+]
+
+const TEAM_SIZES = ['Just me', '2–5', '6–15', '16–30', '31–50', '50+']
+
+const AI_MATURITY_OPTIONS = [
+  'Completely new to it — not sure where to start',
+  'Played around with ChatGPT or similar tools',
+  'Using some AI tools but not getting much from them',
+  'AI running in parts of the business, want to do more',
+  'Specific AI project in mind, need expert help',
+]
+
+const AREAS_OF_INTEREST = [
+  'Automating repetitive tasks & workflows',
+  'AI for marketing, content & social media',
+  'Customer service & chatbots',
+  'Sales & lead management',
+  'Data analysis & business intelligence',
+  'AI strategy & where to start',
+  'Staff training & AI upskilling',
+  'Building or integrating AI tools',
+  'I am not sure yet — I need guidance',
+]
+
+const CHALLENGES = [
+  'Too much time on admin and manual tasks',
+  'Not enough leads or visibility',
+  'Converting leads into paying clients',
+  'Keeping up with competitors',
+  'Team capacity and productivity',
+  'Understanding what technology can actually do for us',
+  'Something else',
+]
+
+const TIMEFRAMES = [
+  'Right now — I am ready to move',
+  'Within the next month',
+  'In the next 3 months',
+  'Just exploring for now',
+]
+
+const radioClass =
+  'flex cursor-pointer items-start gap-3 rounded-md border border-stroke px-4 py-3 text-sm text-body-color has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary dark:border-stroke-dark dark:text-body-color-dark'
+
 export function ConsultingEnquiryForm() {
-  const [state, setState] = useState<FormState>('idle')
+  const [phase, setPhase] = useState<ConsultingPhase>('form')
   const [errorMsg, setErrorMsg] = useState('')
   const [emailError, setEmailError] = useState('')
   const [turnstileToken, setTurnstileToken] = useState('')
+  const [leadId, setLeadId] = useState('')
+  const [leadName, setLeadName] = useState('')
   const [form, setForm] = useState({
     name: '',
     email: '',
     businessName: '',
     aiChallenge: '',
-    teamSize: '',
     preferredContact: 'email',
     phone: '',
   })
+  const [intake, setIntake] = useState<IntakeData>({
+    industry: '',
+    teamSize: '',
+    aiMaturity: '',
+    areasOfInterest: [],
+    biggestChallenge: '',
+    biggestChallengeOther: '',
+    timeframe: '',
+  })
 
-  function handleChange(
+  function handleFormChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
     if (e.target.name === 'email') setEmailError('')
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleInitialSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!isValidEmail(form.email)) {
       setEmailError('Please enter a valid email address.')
@@ -203,7 +292,7 @@ export function ConsultingEnquiryForm() {
       setErrorMsg('Please complete the security check.')
       return
     }
-    setState('submitting')
+    setPhase('submitting')
     setErrorMsg('')
     try {
       const res = await fetch('/api/contact', {
@@ -220,30 +309,365 @@ export function ConsultingEnquiryForm() {
       const data = await res.json()
       if (!res.ok) {
         setErrorMsg(data.error ?? 'Something went wrong.')
-        setState('error')
+        setPhase('error')
       } else {
-        setState('success')
+        setLeadId(data.leadId ?? '')
+        setLeadName(form.name)
+        setPhase('path-choice')
       }
     } catch {
       setErrorMsg('Something went wrong. Please try again.')
-      setState('error')
+      setPhase('error')
     }
   }
 
-  if (state === 'success') {
+  async function handleBookingClick() {
+    window.open('https://cal.com/michael-collicoat/30min', '_blank')
+    if (leadId) {
+      fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ leadId, leadPath: 'booking' }),
+      }).catch(() => {})
+    }
+    setPhase('booking-done')
+  }
+
+  function handleIntakeStart() {
+    setPhase('intake')
+  }
+
+  function handleIntakeChange(field: keyof IntakeData, value: string) {
+    setIntake((prev) => ({ ...prev, [field]: value }))
+  }
+
+  function handleAreaToggle(area: string) {
+    setIntake((prev) => ({
+      ...prev,
+      areasOfInterest: prev.areasOfInterest.includes(area)
+        ? prev.areasOfInterest.filter((a) => a !== area)
+        : [...prev.areasOfInterest, area],
+    }))
+  }
+
+  async function handleIntakeSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setPhase('intake-submitting')
+    const biggestChallenge =
+      intake.biggestChallenge === 'Something else' && intake.biggestChallengeOther
+        ? `Something else: ${intake.biggestChallengeOther}`
+        : intake.biggestChallenge
+
+    try {
+      const res = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          leadId,
+          leadPath: 'intake',
+          industry: intake.industry,
+          teamSize: intake.teamSize,
+          aiMaturity: intake.aiMaturity,
+          areasOfInterest: intake.areasOfInterest,
+          biggestChallenge,
+          timeframe: intake.timeframe,
+        }),
+      })
+      if (res.ok) {
+        setPhase('intake-done')
+      } else {
+        setPhase('error')
+        setErrorMsg('Something went wrong saving your answers. Please try again.')
+      }
+    } catch {
+      setPhase('error')
+      setErrorMsg('Something went wrong. Please try again.')
+    }
+  }
+
+  // ── Path choice screen ──────────────────────────────────────────────────────
+  if (phase === 'path-choice') {
+    return (
+      <div className="space-y-6">
+        <div className="text-center">
+          <div className="mb-3 text-4xl">✓</div>
+          <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
+            Thanks — we have your details.
+          </h3>
+          <p className="text-base text-body-color dark:text-body-color-dark">
+            To make sure we come to you prepared, how would you like to continue?
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {/* Path A — Book a call */}
+          <div className="flex flex-col rounded-lg border border-stroke bg-white p-6 dark:border-stroke-dark dark:bg-dark">
+            <h4 className="mb-2 text-base font-bold text-black dark:text-white">
+              Book a Discovery Call
+            </h4>
+            <p className="mb-5 flex-1 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+              Choose a time that suits you. We will come prepared.
+            </p>
+            <button
+              onClick={handleBookingClick}
+              className="inline-block w-full rounded-xs bg-primary px-5 py-3 text-sm font-semibold text-white duration-300 hover:bg-primary/80"
+            >
+              Book a 30-Minute Call →
+            </button>
+          </div>
+          {/* Path B — Smart intake */}
+          <div className="flex flex-col rounded-lg border border-stroke bg-white p-6 dark:border-stroke-dark dark:bg-dark">
+            <h4 className="mb-2 text-base font-bold text-black dark:text-white">
+              Tell Us More First
+            </h4>
+            <p className="mb-5 flex-1 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+              Answer 6 quick questions so we can research your business before we speak.
+            </p>
+            <button
+              onClick={handleIntakeStart}
+              className="inline-block w-full rounded-xs border border-primary px-5 py-3 text-sm font-semibold text-primary duration-300 hover:bg-primary hover:text-white"
+            >
+              Start the Intake →
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Booking confirmed ────────────────────────────────────────────────────────
+  if (phase === 'booking-done') {
     return (
       <div className="rounded-lg bg-green-50 px-8 py-10 text-center dark:bg-green-900/20">
         <div className="mb-3 text-4xl">✓</div>
-        <h3 className="mb-2 text-xl font-bold text-black dark:text-white">Enquiry received</h3>
+        <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
+          Booking page opened
+        </h3>
         <p className="text-base text-body-color dark:text-body-color-dark">
-          Thanks {form.name}! We&apos;ll be in touch within 1 business day to arrange a discovery call.
+          If it didn&apos;t open,{' '}
+          <a
+            href="https://cal.com/michael-collicoat/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline"
+          >
+            click here to book
+          </a>
+          . We look forward to speaking with you, {leadName}.
         </p>
       </div>
     )
   }
 
+  // ── Intake form ──────────────────────────────────────────────────────────────
+  if (phase === 'intake' || phase === 'intake-submitting') {
+    return (
+      <form onSubmit={handleIntakeSubmit} className="space-y-8">
+        <div>
+          <p className="mb-1 text-sm font-semibold text-black dark:text-white">
+            Thanks {leadName} — just 6 quick questions.
+          </p>
+          <p className="text-sm text-body-color dark:text-body-color-dark">
+            Your answers help us research your business before we speak.
+          </p>
+        </div>
+
+        {/* Q1 — Industry */}
+        <div>
+          <label htmlFor="intake-industry" className={labelClass}>
+            1. What industry are you in? <span className="text-red-500">*</span>
+          </label>
+          <select
+            id="intake-industry"
+            required
+            value={intake.industry}
+            onChange={(e) => handleIntakeChange('industry', e.target.value)}
+            className={inputClass}
+          >
+            <option value="">Select your industry…</option>
+            {INDUSTRIES.map((ind) => (
+              <option key={ind} value={ind}>{ind}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Q2 — Team size */}
+        <fieldset>
+          <legend className={`${labelClass} mb-3`}>
+            2. How big is your team? <span className="text-red-500">*</span>
+          </legend>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {TEAM_SIZES.map((size) => (
+              <label key={size} className={radioClass}>
+                <input
+                  type="radio"
+                  name="intake-teamSize"
+                  value={size}
+                  required
+                  checked={intake.teamSize === size}
+                  onChange={() => handleIntakeChange('teamSize', size)}
+                  className="mt-0.5 accent-primary"
+                />
+                {size}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        {/* Q3 — AI maturity */}
+        <fieldset>
+          <legend className={`${labelClass} mb-3`}>
+            3. Where is your business with AI right now? <span className="text-red-500">*</span>
+          </legend>
+          <div className="space-y-2">
+            {AI_MATURITY_OPTIONS.map((opt) => (
+              <label key={opt} className={radioClass}>
+                <input
+                  type="radio"
+                  name="intake-aiMaturity"
+                  value={opt}
+                  required
+                  checked={intake.aiMaturity === opt}
+                  onChange={() => handleIntakeChange('aiMaturity', opt)}
+                  className="mt-0.5 shrink-0 accent-primary"
+                />
+                {opt}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        {/* Q4 — Areas of interest */}
+        <fieldset>
+          <legend className={`${labelClass} mb-3`}>
+            4. Which areas are most relevant to you?{' '}
+            <span className="text-body-color font-normal dark:text-body-color-dark">(select all that apply)</span>
+          </legend>
+          <div className="space-y-2">
+            {AREAS_OF_INTEREST.map((area) => (
+              <label
+                key={area}
+                className="flex cursor-pointer items-start gap-3 rounded-md border border-stroke px-4 py-3 text-sm text-body-color has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary dark:border-stroke-dark dark:text-body-color-dark"
+              >
+                <input
+                  type="checkbox"
+                  value={area}
+                  checked={intake.areasOfInterest.includes(area)}
+                  onChange={() => handleAreaToggle(area)}
+                  className="mt-0.5 shrink-0 accent-primary"
+                />
+                {area}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        {/* Q5 — Biggest challenge */}
+        <fieldset>
+          <legend className={`${labelClass} mb-3`}>
+            5. What is your biggest challenge right now? <span className="text-red-500">*</span>
+          </legend>
+          <div className="space-y-2">
+            {CHALLENGES.map((challenge) => (
+              <label key={challenge} className={radioClass}>
+                <input
+                  type="radio"
+                  name="intake-challenge"
+                  value={challenge}
+                  required
+                  checked={intake.biggestChallenge === challenge}
+                  onChange={() => handleIntakeChange('biggestChallenge', challenge)}
+                  className="mt-0.5 shrink-0 accent-primary"
+                />
+                {challenge}
+              </label>
+            ))}
+          </div>
+          {intake.biggestChallenge === 'Something else' && (
+            <div className="mt-3">
+              <label htmlFor="intake-other" className={labelClass}>
+                Tell us more <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="intake-other"
+                type="text"
+                required
+                value={intake.biggestChallengeOther}
+                onChange={(e) => handleIntakeChange('biggestChallengeOther', e.target.value)}
+                placeholder="Describe your biggest challenge…"
+                className={inputClass}
+              />
+            </div>
+          )}
+        </fieldset>
+
+        {/* Q6 — Timeframe */}
+        <fieldset>
+          <legend className={`${labelClass} mb-3`}>
+            6. What is your timeframe? <span className="text-red-500">*</span>
+          </legend>
+          <div className="space-y-2">
+            {TIMEFRAMES.map((tf) => (
+              <label key={tf} className={radioClass}>
+                <input
+                  type="radio"
+                  name="intake-timeframe"
+                  value={tf}
+                  required
+                  checked={intake.timeframe === tf}
+                  onChange={() => handleIntakeChange('timeframe', tf)}
+                  className="mt-0.5 shrink-0 accent-primary"
+                />
+                {tf}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <button
+          type="submit"
+          disabled={phase === 'intake-submitting'}
+          className="inline-block w-full rounded-xs bg-primary px-6 py-3 text-base font-semibold text-white duration-300 hover:bg-primary/80 disabled:opacity-60"
+        >
+          {phase === 'intake-submitting' ? 'Saving your answers…' : 'Submit answers →'}
+        </button>
+      </form>
+    )
+  }
+
+  // ── Intake complete ──────────────────────────────────────────────────────────
+  if (phase === 'intake-done') {
+    return (
+      <div className="rounded-lg bg-green-50 px-8 py-10 text-center dark:bg-green-900/20">
+        <div className="mb-3 text-4xl">✓</div>
+        <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
+          Perfect — we will be in touch shortly.
+        </h3>
+        <p className="text-base text-body-color dark:text-body-color-dark">
+          Thanks {leadName}! We&apos;ll review your answers, research your business, and come back to you ready to have a real conversation.
+        </p>
+      </div>
+    )
+  }
+
+  // ── Error ────────────────────────────────────────────────────────────────────
+  if (phase === 'error') {
+    return (
+      <div className="rounded-lg bg-red-50 px-8 py-10 text-center dark:bg-red-900/20">
+        <h3 className="mb-2 text-xl font-bold text-black dark:text-white">Something went wrong</h3>
+        <p className="mb-4 text-base text-body-color dark:text-body-color-dark">{errorMsg}</p>
+        <button
+          onClick={() => { setPhase('form'); setErrorMsg('') }}
+          className="text-primary text-sm underline"
+        >
+          Try again
+        </button>
+      </div>
+    )
+  }
+
+  // ── Initial consulting form ──────────────────────────────────────────────────
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleInitialSubmit} className="space-y-5">
       <div>
         <label htmlFor="c-name" className={labelClass}>
           Name <span className="text-red-500">*</span>
@@ -254,7 +678,7 @@ export function ConsultingEnquiryForm() {
           type="text"
           required
           value={form.name}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="Jane Smith"
           className={inputClass}
         />
@@ -269,7 +693,7 @@ export function ConsultingEnquiryForm() {
           type="email"
           required
           value={form.email}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="jane@yourbusiness.com.au"
           className={inputClass}
         />
@@ -287,7 +711,7 @@ export function ConsultingEnquiryForm() {
           type="text"
           required
           value={form.businessName}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="Your Business Pty Ltd"
           className={inputClass}
         />
@@ -302,29 +726,10 @@ export function ConsultingEnquiryForm() {
           name="aiChallenge"
           rows={4}
           value={form.aiChallenge}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="e.g. We spend 10 hours a week writing product descriptions manually…"
           className={inputClass}
         />
-      </div>
-      <div>
-        <label htmlFor="c-teamsize" className={labelClass}>
-          Team size{' '}
-          <span className="text-body-color font-normal dark:text-body-color-dark">(optional)</span>
-        </label>
-        <select
-          id="c-teamsize"
-          name="teamSize"
-          value={form.teamSize}
-          onChange={handleChange}
-          className={inputClass}
-        >
-          <option value="">Select…</option>
-          <option value="1-5">1–5 people</option>
-          <option value="6-20">6–20 people</option>
-          <option value="21-50">21–50 people</option>
-          <option value="50+">50+ people</option>
-        </select>
       </div>
       <div>
         <p className={labelClass}>How would you prefer we follow up?</p>
@@ -342,7 +747,7 @@ export function ConsultingEnquiryForm() {
                 name="preferredContact"
                 value={opt.value}
                 checked={form.preferredContact === opt.value}
-                onChange={handleChange}
+                onChange={handleFormChange}
                 className="accent-primary"
               />
               {opt.label}
@@ -361,7 +766,7 @@ export function ConsultingEnquiryForm() {
             type="tel"
             required
             value={form.phone}
-            onChange={handleChange}
+            onChange={handleFormChange}
             placeholder="04xx xxx xxx"
             className={inputClass}
           />
@@ -375,15 +780,15 @@ export function ConsultingEnquiryForm() {
           onExpire={() => setTurnstileToken('')}
         />
       </div>
-      {state === 'error' && (
+      {phase === 'error' && (
         <p className="text-sm text-red-500">{errorMsg}</p>
       )}
       <button
         type="submit"
-        disabled={state === 'submitting'}
+        disabled={phase === 'submitting'}
         className="inline-block w-full rounded-xs bg-primary px-6 py-3 text-base font-semibold text-white duration-300 hover:bg-primary/80 disabled:opacity-60"
       >
-        {state === 'submitting' ? 'Sending…' : 'Send consulting enquiry →'}
+        {phase === 'submitting' ? 'Sending…' : 'Send consulting enquiry →'}
       </button>
     </form>
   )
