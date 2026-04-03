@@ -1,7 +1,7 @@
 const stats = [
-  { number: "47+", label: "Australian businesses helped" },
-  { number: "3.2x", label: "Average ROI improvement" },
-  { number: "90 days", label: "Typical implementation timeline" },
+  { number: "97%", label: "of Australian employers are small businesses. Almost none have an AI strategy." },
+  { number: "$0", label: "in pricing shown by our competitors. We show ours." },
+  { number: "14 days", label: "to your first working AI workflow. Not a strategy deck." },
 ];
 
 const StatsStrip = () => {
@@ -10,9 +10,9 @@ const StatsStrip = () => {
       <div className="container">
         <div className="flex flex-col items-center justify-around gap-10 sm:flex-row">
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
+            <div key={s.number} className="max-w-[220px] text-center">
               <div className="mb-2 text-4xl font-bold text-white">{s.number}</div>
-              <div className="text-sm text-white/80">{s.label}</div>
+              <div className="text-sm leading-relaxed text-white/80">{s.label}</div>
             </div>
           ))}
         </div>

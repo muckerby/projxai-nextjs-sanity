@@ -8,7 +8,7 @@ const Features = () => {
       <section id="features" className="py-16 md:py-20 lg:py-28">
         <div className="container">
           <SectionTitle
-            title="Three ways ProjxAI delivers results"
+            title="How ProjxAI works"
             paragraph=""
             center
           />
