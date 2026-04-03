@@ -26,9 +26,7 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <div className="min-h-[200px] border-4 border-red-500">
-        <AudienceStrip />
-      </div>
+      <AudienceStrip />
       <Features />
       <ToolTeasers />
       <StatsStrip />
