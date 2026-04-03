@@ -48,21 +48,23 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="max-w-full px-4 xl:mr-12" style={{ flexShrink: 0 }}>
               <Link
                 href="/"
                 className={`header-logo block w-full ${
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/logo-navbar.png"
-                  alt="ProjxAI"
-                  width={220}
-                  height={44}
-                  style={{ height: "44px", width: "auto" }}
-                />
+                <div style={{ flexShrink: 0 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/logo-navbar.png"
+                    alt="ProjxAI"
+                    width={280}
+                    height={56}
+                    style={{ height: "56px", width: "auto", maxWidth: "280px", flexShrink: 0 }}
+                  />
+                </div>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
