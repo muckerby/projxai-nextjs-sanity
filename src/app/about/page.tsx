@@ -4,152 +4,213 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About ProjxAI | AI Consultancy Brisbane Australia",
   description:
-    "ProjxAI is a specialist AI consultancy for Australian SMEs. Practical AI implementation in plain English — built around the reality of running an Australian small or medium business.",
+    "ProjxAI is founded by Michael Collicoat — 37 years of digital, technology and AI experience now focused on helping Australian SMEs navigate AI transformation.",
   openGraph: {
     title: "About ProjxAI | AI Consultancy Brisbane Australia",
     description:
-      "ProjxAI is a specialist AI consultancy for Australian SMEs. Practical AI implementation in plain English — built around the reality of running an Australian small or medium business.",
+      "ProjxAI is founded by Michael Collicoat — 37 years of digital, technology and AI experience now focused on helping Australian SMEs.",
     url: "https://www.projxai.com.au/about",
-    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-white pt-[140px] pb-16 dark:bg-gray-dark md:pb-20">
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="pt-40 pb-24" style={{ backgroundColor: "#f9f9ff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              Who we are
-            </h1>
-            <p className="text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              ProjxAI is a specialist AI consultancy built for Australian small and medium businesses. We exist to solve one problem: making AI genuinely useful for businesses that don&apos;t have an in-house tech team — in plain English, with practical outcomes, at a price that makes sense.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-7">
+              <span
+                className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-6"
+                style={{ backgroundColor: "#dce2f3", color: "#5e6573", fontFamily: "Manrope, sans-serif" }}
+              >
+                Our Mission
+              </span>
+              <h1
+                className="font-extrabold text-on-surface leading-[0.95] tracking-tighter mb-8"
+                style={{
+                  fontFamily: "Space Grotesk, sans-serif",
+                  fontSize: "clamp(3.5rem, 8vw, 5.5rem)",
+                  color: "#151c27",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                Architecting the{" "}
+                <span style={{ color: "#6B3FE7", fontStyle: "italic" }}>Future</span>
+                <br />
+                of Australian SMEs.
+              </h1>
+              <p className="text-xl max-w-xl leading-relaxed" style={{ color: "#494455" }}>
+                We don&apos;t just implement software. We design digital foundations that empower
+                local businesses to compete on a global scale using intentional AI integration.
+              </p>
+            </div>
 
-      {/* Mission */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-6 text-3xl font-bold text-black dark:text-white">Why ProjxAI exists</h2>
-            <div className="space-y-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              <p>
-                In 2025, AI stopped being a future technology and became a present-day competitive advantage. The businesses embracing it — automating their operations, scaling their content, making smarter decisions faster — were pulling ahead. The ones waiting to &ldquo;see how it develops&rdquo; were already behind.
-              </p>
-              <p>
-                The problem wasn&apos;t that Australian SMEs didn&apos;t want to use AI. It was that everything available to them was designed for someone else. Enterprise tools built for 500-person companies. US-focused playbooks that didn&apos;t apply to the Australian market. Consultants charging $500 an hour to explain things that shouldn&apos;t be complicated.
-              </p>
-              <p>
-                ProjxAI exists to fix that gap. Practical AI implementation, in plain English, built around the specific reality of Australian small and medium businesses.
-              </p>
+            {/* Insight module */}
+            <div className="lg:col-span-5 relative">
+              <div
+                className="aspect-[4/5] rounded-[2rem] overflow-hidden"
+                style={{ boxShadow: "0 40px 80px rgba(21,28,39,0.12)" }}
+              >
+                <div
+                  style={{
+                    background: "linear-gradient(160deg, #1a1a2e 0%, #2d1b69 50%, #6b3fe7 100%)",
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                  }}
+                >
+                  <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 300 400" fill="none">
+                    <circle cx="150" cy="200" r="100" stroke="#ccbdff" strokeWidth="0.5" />
+                    <circle cx="150" cy="200" r="70" stroke="#ccbdff" strokeWidth="0.5" />
+                    <circle cx="150" cy="200" r="40" stroke="#ccbdff" strokeWidth="0.5" />
+                    <circle cx="150" cy="100" r="4" fill="#ccbdff" />
+                    <circle cx="230" cy="200" r="4" fill="#ccbdff" />
+                    <circle cx="150" cy="300" r="4" fill="#ccbdff" />
+                    <circle cx="70" cy="200" r="4" fill="#ccbdff" />
+                    <line x1="150" y1="100" x2="230" y2="200" stroke="#ccbdff" strokeWidth="0.5" />
+                    <line x1="230" y1="200" x2="150" y2="300" stroke="#ccbdff" strokeWidth="0.5" />
+                    <line x1="150" y1="300" x2="70" y2="200" stroke="#ccbdff" strokeWidth="0.5" />
+                    <line x1="70" y1="200" x2="150" y2="100" stroke="#ccbdff" strokeWidth="0.5" />
+                  </svg>
+                </div>
+              </div>
+              {/* Floating insight card */}
+              <div
+                className="absolute -bottom-8 -left-8 p-8 rounded-2xl max-w-xs hidden md:block"
+                style={{
+                  background: "rgba(249,249,255,0.85)",
+                  backdropFilter: "blur(16px)",
+                  boxShadow: "0 40px 40px rgba(21,28,39,0.08)",
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z" fill="#6B3FE7" opacity="0.2"/>
+                    <path d="M12 7v5l3 3" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  <span className="font-bold text-sm" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+                    Australian Focus
+                  </span>
+                </div>
+                <p className="text-sm" style={{ color: "#494455" }}>
+                  Proudly Brisbane-based. We understand the local business landscape and regulatory environment.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Principles */}
-      <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
+      {/* ── STORY ────────────────────────────────────────────── */}
+      <section className="py-32" style={{ backgroundColor: "#f0f3ff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              Three principles we won&apos;t compromise on
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+            <div>
+              <h2 className="text-4xl font-extrabold mb-8 leading-tight" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.02em" }}>
+                Digital craftsmanship meets technical precision.
+              </h2>
+              <div className="space-y-5 text-lg leading-relaxed mb-10" style={{ color: "#494455" }}>
+                <p>
+                  ProjxAI was founded by Michael Collicoat — a technology and digital leader with
+                  37 years of hands-on experience, from network engineering in Wellington through
+                  to leading full-scale AI transformation at a national scale.
+                </p>
+                <p>
+                  The gap Michael saw was clear: most businesses attempting AI adoption were failing
+                  not because the technology wasn&apos;t there, but because no one had taken the time
+                  to understand their processes, data, and team readiness first. ProjxAI exists to
+                  fix that.
+                </p>
+                <p>
+                  Our approach is quiet, structured, and deeply integrated into your unique business
+                  DNA — not another generic tool with a generic implementation.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                {[
+                  { value: "37+", label: "Years in tech & digital" },
+                  { value: "150+", label: "AI workflows deployed" },
+                  { value: "94%", label: "Client satisfaction" },
+                  { value: "5×", label: "Avg. ROI on automation" },
+                ].map((s) => (
+                  <div key={s.value}>
+                    <div className="text-4xl font-black mb-1" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#6B3FE7", letterSpacing: "-0.04em" }}>{s.value}</div>
+                    <div className="text-sm font-bold uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif", color: "#151c27" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Value cards */}
+            <div className="flex flex-col gap-6">
+              {[
+                {
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#6B3FE7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ),
+                  title: "Intentional Design",
+                  desc: "We believe AI should be invisible, yet indispensable. Our implementations prioritise human workflow over technical complexity.",
+                },
+                {
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#6B3FE7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ),
+                  title: "Sovereign Expertise",
+                  desc: "Proudly Australian owned and operated out of Brisbane. We understand the local regulatory landscape, market nuances, and business culture.",
+                },
+                {
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#6B3FE7" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="9" cy="7" r="4" stroke="#6B3FE7" strokeWidth="1.5"/>
+                      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#6B3FE7" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  ),
+                  title: "No Account Managers",
+                  desc: "You work directly with Michael — the person who built the systems and understands your business. No intermediaries, no hand-offs.",
+                },
+              ].map((card) => (
+                <div key={card.title} className="p-8 rounded-3xl" style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 40px rgba(21,28,39,0.04)" }}>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ backgroundColor: "#e7eeff" }}>
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+                    {card.title}
+                  </h3>
+                  <p style={{ color: "#494455" }}>{card.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────────── */}
+      <section className="py-32" style={{ backgroundColor: "#f9f9ff" }}>
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-4xl font-extrabold mb-6" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.03em" }}>
+              Starting the <span style={{ color: "#6B3FE7" }}>Conversation.</span>
             </h2>
-            <div className="space-y-8">
-              {[
-                {
-                  title: "Plain English, not jargon",
-                  body: "If we can't explain what we're doing in terms you understand, we're not doing it right. Every recommendation, every deliverable, every conversation — no buzzwords, no tech speak.",
-                },
-                {
-                  title: "Practical builds, not theory",
-                  body: "We don't deliver strategy decks and wish you luck. Everything we produce is designed to be implemented. If it can't be acted on, we don't include it.",
-                },
-                {
-                  title: "Australian businesses, Australian context",
-                  body: "The US AI playbook doesn't always translate. Australian market, Australian regulations, Australian business culture — we build recommendations that actually apply to where you operate.",
-                },
-              ].map((p) => (
-                <div key={p.title} className="border-l-4 border-primary pl-6">
-                  <h3 className="mb-2 text-xl font-bold text-black dark:text-white">{p.title}</h3>
-                  <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">{p.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Michael Bio */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">The person behind ProjxAI</h2>
-            <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-              {/* Replace with real headshot: 400x400px */}
-              <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-primary/70">
-                <svg className="h-14 w-14 text-white/80" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="mb-1 text-xl font-bold text-black dark:text-white">Michael Collicoat</h3>
-                <p className="text-primary mb-4 text-sm font-medium">Founder, ProjxAI | Brisbane, QLD, Australia</p>
-                <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Michael Collicoat is the founder of ProjxAI, based in Brisbane. He works directly with Australian SMEs — no account managers, no junior consultants, no offshore teams.
-                </p>
-                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  His approach is direct and practical: understand the business first, identify where AI actually delivers value, and build something that works. Not a pilot programme. Not a proof of concept. Something that runs in production and saves real time or generates real revenue.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company Structure */}
-      <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-5 text-3xl font-bold text-black dark:text-white">Our structure</h2>
-            <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              ProjxAI is a properly structured Australian company — not a freelancer or sole trader operating under a trading name. This matters because it means professional accountability, proper contracts, and a business that&apos;s built to last.
+            <p className="text-lg mb-10" style={{ color: "#494455" }}>
+              Ready to find out where AI fits in your business? Book a free 30-minute discovery call
+              with Michael — no sales pitch, just an honest conversation.
             </p>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {[
-                { label: "ABN", value: "80 398 642 662" },
-                { label: "Registered", value: "Queensland, Australia" },
-                { label: "Director", value: "Michael Collicoat" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-lg bg-gray-light px-5 py-4 dark:bg-dark">
-                  <div className="text-primary mb-1 text-xs font-semibold uppercase tracking-widest">{item.label}</div>
-                  <div className="text-base font-medium text-black dark:text-white">{item.value}</div>
-                </div>
-              ))}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact#consulting" className="btn-primary-gradient inline-block px-10 py-5 rounded-xl text-white font-bold text-lg transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.3)]" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                Book a Discovery Call
+              </Link>
+              <Link href="/services" className="inline-block px-10 py-5 rounded-xl font-bold text-lg transition-colors" style={{ backgroundColor: "#dce2f3", color: "#6B3FE7", fontFamily: "Space Grotesk, sans-serif" }}>
+                View Services
+              </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTAs */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/services"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
-            >
-              Explore our services →
-            </Link>
-            <Link
-              href="/work-with-us"
-              className="inline-block rounded-xs border border-primary px-8 py-4 text-base font-semibold text-primary duration-300 hover:bg-primary/10"
-            >
-              Book a discovery call →
-            </Link>
           </div>
         </div>
       </section>

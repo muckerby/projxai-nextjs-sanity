@@ -2,161 +2,129 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import menuData from "./menuData";
 
 const Header = () => {
-  // Navbar toggle
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
-  };
-
-  // Sticky Navbar
   const [sticky, setSticky] = useState(false);
-  const handleStickyNavbar = () => {
-    if (window.scrollY >= 80) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const pathname = usePathname();
+
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
-  });
+    const handleScroll = () => setSticky(window.scrollY >= 64);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // submenu handler
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
-  };
+  const navLinks = [
+    { label: "Services", href: "/services" },
+    { label: "Tools", href: "/tools" },
+    { label: "Blog", href: "/blog" },
+    { label: "About", href: "/about" },
+  ];
 
-  const usePathName = usePathname();
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <>
-      <header
-        className={`header top-0 left-0 z-40 flex w-full items-center ${
-          sticky
-            ? "dark:bg-gray-dark dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white/80 backdrop-blur-xs transition"
-            : "absolute bg-transparent"
-        }`}
-      >
-        <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="max-w-full px-4 xl:mr-12" style={{ flexShrink: 0 }}>
+    <header
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        sticky
+          ? "glass-nav shadow-[0_40px_40px_rgba(21,28,39,0.06)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container">
+        <div className="flex items-center justify-between py-5">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            {/* Compass icon */}
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="15" stroke="#6B3FE7" strokeWidth="1.5" fill="none"/>
+              <path d="M18 18 L23 13" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M18 18 L13 23" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.35"/>
+              <circle cx="18" cy="18" r="2.5" fill="#6B3FE7"/>
+            </svg>
+            <span
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.35rem",
+                letterSpacing: "-0.02em",
+                color: "#151c27",
+              }}
+            >
+              ProjxAI
+            </span>
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
               <Link
-                href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
-                } `}
+                key={link.href}
+                href={link.href}
+                style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600 }}
+                className={`text-sm transition-colors duration-200 ${
+                  isActive(link.href)
+                    ? "text-[#6B3FE7] border-b-2 border-[#6B3FE7] pb-0.5"
+                    : "text-[#151c27] hover:text-[#6B3FE7]"
+                }`}
               >
-                <div style={{ flexShrink: 0 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/logo-navbar.png"
-                    alt="ProjxAI"
-                    width={280}
-                    height={56}
-                    style={{ height: "56px", width: "auto", maxWidth: "280px", flexShrink: 0 }}
-                  />
-                </div>
+                {link.label}
               </Link>
-            </div>
-            <div className="flex w-full items-center justify-between px-4">
-              <div>
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 md:hidden"
-                >
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "top-[7px] rotate-45" : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "opacity-0" : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "top-[-8px] -rotate-45" : " "
-                    }`}
-                  />
-                </button>
-                <nav
-                  id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 md:visible md:static md:w-auto md:border-none md:!bg-transparent md:p-0 md:opacity-100 ${
-                    navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
-                  }`}
-                >
-                  <ul className="block md:flex md:space-x-12">
-                    {menuData.map((menuItem, index) => (
-                      <li key={index} className="group relative">
-                        {menuItem.path ? (
-                          <Link
-                            href={menuItem.path}
-                            className={`flex py-2 text-base md:mr-0 md:inline-flex md:px-0 md:py-6 ${
-                              usePathName === menuItem.path
-                                ? "text-primary dark:text-white"
-                                : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                            }`}
-                          >
-                            {menuItem.title}
-                          </Link>
-                        ) : (
-                          <>
-                            <p
-                              onClick={() => handleSubmenu(index)}
-                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base md:mr-0 md:inline-flex md:px-0 md:py-6 dark:text-white/70 dark:group-hover:text-white"
-                            >
-                              {menuItem.title}
-                              <span className="pl-3">
-                                <svg width="25" height="24" viewBox="0 0 25 24">
-                                  <path
-                                    fillRule="evenodd"
-                                    clipRule="evenodd"
-                                    d="M6.29289 8.8427C6.68342 8.45217 7.31658 8.45217 7.70711 8.8427L12 13.1356L16.2929 8.8427C16.6834 8.45217 17.3166 8.45217 17.7071 8.8427C18.0976 9.23322 18.0976 9.86639 17.7071 10.2569L12 15.964L6.29289 10.2569C5.90237 9.86639 5.90237 9.23322 6.29289 8.8427Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </span>
-                            </p>
-                            <div
-                              className={`submenu dark:bg-dark relative top-full left-0 rounded-lg bg-white transition-[top] duration-300 group-hover:opacity-100 md:invisible md:absolute md:top-[110%] md:z-50 md:block md:w-[260px] md:rounded-lg md:border md:border-stroke md:p-2 md:opacity-0 md:shadow-xl md:group-hover:visible md:group-hover:top-full dark:md:border-stroke-dark ${
-                                openIndex === index ? "block" : "hidden"
-                              }`}
-                            >
-                              {menuItem.submenu.map((submenuItem, index) => (
-                                <Link
-                                  href={submenuItem.path}
-                                  key={index}
-                                  className="text-dark hover:text-primary hover:bg-primary/5 block rounded-md px-3 py-2.5 text-sm dark:text-white/70 dark:hover:text-white dark:hover:bg-white/5"
-                                >
-                                  {submenuItem.title}
-                                </Link>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </div>
-            </div>
+            ))}
+          </nav>
+
+          {/* CTA button */}
+          <div className="hidden md:block">
+            <Link
+              href="/contact"
+              className="btn-primary-gradient inline-block px-7 py-3 rounded-xl text-white text-sm font-bold transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.3)] active:scale-95"
+              style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
+            >
+              Contact Us
+            </Link>
           </div>
+
+          {/* Mobile burger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            aria-label="Open menu"
+          >
+            <span className={`block h-0.5 w-6 bg-[#151c27] transition-all duration-300 ${navbarOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block h-0.5 w-6 bg-[#151c27] transition-all duration-300 ${navbarOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 w-6 bg-[#151c27] transition-all duration-300 ${navbarOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
-      </header>
-    </>
+
+        {/* Mobile menu */}
+        {navbarOpen && (
+          <div className="md:hidden glass-nav rounded-2xl mb-4 px-6 py-6 shadow-[0_5px_40px_rgba(21,28,39,0.08)]">
+            <nav className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setNavbarOpen(false)}
+                  className={`text-base font-semibold ${isActive(link.href) ? "text-[#6B3FE7]" : "text-[#151c27]"}`}
+                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                onClick={() => setNavbarOpen(false)}
+                className="btn-primary-gradient mt-2 inline-block px-6 py-3 rounded-xl text-white text-sm font-bold text-center"
+                style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
+              >
+                Contact Us
+              </Link>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
   );
 };
 
