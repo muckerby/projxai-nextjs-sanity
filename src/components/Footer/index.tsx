@@ -10,10 +10,9 @@ const Footer = () => {
           <div>
             <Link href="/" className="flex items-center gap-2 mb-6">
               <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="18" cy="18" r="15" stroke="#6B3FE7" strokeWidth="1.5" fill="none"/>
-                <path d="M18 18 L23 13" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M18 18 L13 23" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.35"/>
-                <circle cx="18" cy="18" r="2.5" fill="#6B3FE7"/>
+                <circle cx="18" cy="18" r="18" fill="#6B3FE7"/>
+                <path d="M18 18 L23.5 12.5 L20 20 Z" fill="white"/>
+                <path d="M18 18 L12.5 23.5 L16 16 Z" fill="white" fillOpacity="0.45"/>
               </svg>
               <span style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: "1.2rem", letterSpacing: "-0.02em", color: "#151c27" }}>
                 ProjxAI

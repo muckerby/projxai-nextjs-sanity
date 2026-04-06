@@ -36,12 +36,13 @@ const Header = () => {
         <div className="flex items-center justify-between py-5">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            {/* Compass icon */}
+            {/* Compass icon — filled purple circle with white navigation pointer */}
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="15" stroke="#6B3FE7" strokeWidth="1.5" fill="none"/>
-              <path d="M18 18 L23 13" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M18 18 L13 23" stroke="#6B3FE7" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.35"/>
-              <circle cx="18" cy="18" r="2.5" fill="#6B3FE7"/>
+              <circle cx="18" cy="18" r="18" fill="#6B3FE7"/>
+              {/* North-east pointer (bright white) */}
+              <path d="M18 18 L23.5 12.5 L20 20 Z" fill="white"/>
+              {/* South-west pointer (semi-transparent white) */}
+              <path d="M18 18 L12.5 23.5 L16 16 Z" fill="white" fillOpacity="0.45"/>
             </svg>
             <span
               style={{
