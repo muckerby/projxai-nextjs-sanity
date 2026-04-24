@@ -1,16 +1,31 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.SUPABASE_URL!
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+// Lazy singleton - only instantiated on first request, not at build time.
+// This prevents the Next.js build from crashing when env vars are absent
+// during the static page-data collection phase.
+let _client: SupabaseClient | null = null
 
-if (!supabaseUrl || !supabaseServiceRoleKey) {
-  throw new Error('Missing Supabase env vars — check SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY')
+export function getSupabaseClient(): SupabaseClient {
+  if (_client) return _client
+
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+  if (!url || !key) {
+    throw new Error(
+      'Missing Supabase env vars - add SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to Vercel'
+    )
+  }
+
+  _client = createClient(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  })
+
+  return _client
 }
 
-// Server-side only client — uses service_role key, never expose to browser
-export const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false,
-  },
-})
+// Convenience alias. Must be called inside a request handler, not at module top level.
+export const getSupabase = getSupabaseClient
