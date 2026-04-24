@@ -2,70 +2,108 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work With Us | Book a Free AI Discovery Call | ProjxAI",
+  title: "Work With Us | Book a Free Clarity Call | ProjxAI",
   description:
-    "Book a free 30-minute discovery call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business.",
+    "Book a free 15-minute Clarity Call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business — and what to do first.",
   openGraph: {
-    title: "Work With Us | Book a Free AI Discovery Call | ProjxAI",
+    title: "Work With Us | Book a Free Clarity Call | ProjxAI",
     description:
-      "Book a free 30-minute discovery call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business.",
+      "Book a free 15-minute Clarity Call with ProjxAI. No sales pitch. Just a focused conversation about where AI can genuinely help your business.",
     url: "https://www.projxai.com.au/work-with-us",
-    images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 export default function WorkWithUsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-white pt-[140px] pb-16 dark:bg-gray-dark md:pb-20">
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="pt-40 pb-20" style={{ backgroundColor: "#f9f9ff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[680px] text-center">
-            <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              Let&apos;s build your AI strategy — starting with a free 30-minute call.
-            </h1>
-            <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              No sales pitch. No obligation. Just a focused conversation about where AI can genuinely help your business — and what to do first.
-            </p>
-            <Link
-              href="/contact#consulting"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+          <div className="max-w-3xl">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-6"
+              style={{ backgroundColor: "#e7eeff", color: "#6B3FE7", fontFamily: "Manrope, sans-serif" }}
             >
-              Book your free discovery call →
-            </Link>
+              Free Clarity Call
+            </span>
+            <h1
+              className="font-extrabold leading-[0.95] tracking-tighter mb-6"
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontSize: "clamp(2rem, 5vw, 3.25rem)",
+                color: "#151c27",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Let&apos;s find out where AI fits —{" "}
+              <span style={{ color: "#6B3FE7", fontStyle: "italic" }}>starting with a free 15-minute call.</span>
+            </h1>
+            <p className="text-xl max-w-xl leading-relaxed mb-10" style={{ color: "#494455" }}>
+              No sales pitch. No obligation. Just a focused 15 minutes about where AI can
+              genuinely help your business — and what to do first.
+            </p>
+            <a
+              href="https://cal.com/michael-collicoat/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary-gradient inline-block px-10 py-5 rounded-xl text-white font-bold text-lg transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.3)]"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
+              Book your free Clarity Call →
+            </a>
           </div>
         </div>
       </section>
 
-      {/* What Happens on the Call */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
+      {/* ── WHAT HAPPENS ON THE CALL ─────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "#f0f3ff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              Here&apos;s exactly what we cover
+          <div className="max-w-3xl mx-auto">
+            <h2
+              className="text-3xl font-extrabold mb-12"
+              style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.02em" }}
+            >
+              Here&apos;s exactly what we cover.
             </h2>
-            <div className="space-y-8">
+            <div className="flex flex-col gap-8">
               {[
                 {
+                  num: "01",
                   title: "We learn about your business",
-                  body: "Your industry, your team size, your current tools, and your biggest operational pain points. 10 minutes of good questions beats an hour of generic advice.",
+                  body: "Your industry, your team size, your current tools, and your biggest operational pain points. 5 minutes of good questions beats an hour of generic advice.",
                 },
                 {
+                  num: "02",
                   title: "We identify your biggest AI opportunity",
-                  body: "Based on what we hear, we'll tell you specifically where AI can deliver the most value in your business — and roughly what it would take to get there.",
+                  body: "Based on what we hear, we will tell you specifically where AI can deliver the most value in your business — and roughly what it would take to get there.",
                 },
                 {
-                  title: "You leave with three clear next steps",
-                  body: "Whether you work with us or not, you'll leave with three concrete actions you can take immediately. The call has value regardless of what you decide after.",
+                  num: "03",
+                  title: "You leave with a clear next step",
+                  body: "Whether you work with us or not, you will leave with a concrete starting point. The call has value regardless of what you decide after.",
                 },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-5">
-                  <div className="bg-primary/10 text-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                    {i + 1}
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="flex gap-8 p-8 rounded-2xl"
+                  style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 20px rgba(21,28,39,0.04)" }}
+                >
+                  <div
+                    className="text-2xl font-black shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl"
+                    style={{ fontFamily: "Space Grotesk, sans-serif", color: "#6B3FE7", backgroundColor: "#e7eeff" }}
+                  >
+                    {item.num}
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-bold text-black dark:text-white">{item.title}</h3>
-                    <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">{item.body}</p>
+                    <h3
+                      className="text-xl font-bold mb-2"
+                      style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-base leading-relaxed" style={{ color: "#494455" }}>
+                      {item.body}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -74,105 +112,104 @@ export default function WorkWithUsPage() {
         </div>
       </section>
 
-      {/* Who We Work With */}
-      <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
+      {/* ── WHO WE WORK WITH ─────────────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">
+          <div className="max-w-3xl mx-auto">
+            <h2
+              className="text-3xl font-extrabold mb-10"
+              style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.02em" }}
+            >
               We work best with
             </h2>
-            <ul className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                "SME owners (5–100 staff) who want practical AI implementation, not theory",
-                "eCommerce businesses spending too much time on manual processes and ad management",
-                "Marketing managers who need to scale content output without scaling headcount",
-                "Agency owners wanting to add AI services to their offering or upskill their team",
+                { icon: "🏢", text: "SME owners (5–100 staff) who want practical AI implementation, not theory" },
+                { icon: "🛒", text: "eCommerce businesses spending too much time on manual processes and ad management" },
+                { icon: "📣", text: "Marketing managers who need to scale content output without scaling headcount" },
+                { icon: "🏛️", text: "Agency owners wanting to add AI services to their offering or upskill their team" },
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
-                  <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Overview */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-5 text-3xl font-bold text-black dark:text-white">What does it cost?</h2>
-            <p className="mb-8 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Every engagement is scoped individually because every business is different. Here&apos;s a rough guide:
-            </p>
-            <div className="space-y-3">
-              {[
-                { service: "AI Consulting & Strategy", price: "From $1,500 AUD" },
-                { service: "AI Content Creation Systems", price: "From $1,500 AUD" },
-                { service: "AI Tools & Automation", price: "From $2,000 AUD per project" },
-                { service: "AI Implementation (custom builds)", price: "From $2,500 AUD" },
-              ].map((item) => (
-                <div key={item.service} className="flex items-center justify-between rounded-lg bg-white px-5 py-4 dark:bg-dark">
-                  <span className="text-base font-medium text-black dark:text-white">{item.service}</span>
-                  <span className="text-primary text-sm font-semibold">{item.price}</span>
+                <div
+                  key={item.text}
+                  className="flex items-start gap-4 p-6 rounded-2xl"
+                  style={{ backgroundColor: "#f9f9ff", border: "1px solid #e7eeff" }}
+                >
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <p className="text-base leading-relaxed" style={{ color: "#494455" }}>{item.text}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-sm text-body-color dark:text-body-color-dark">
-              All projects are quoted after the free discovery call. No surprises. GST applicable.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Michael Bio */}
-      <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
+      {/* ── HOW ENGAGEMENT WORKS ─────────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "#f0f3ff" }}>
         <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">Who you&apos;ll be talking to</h2>
-            <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-              {/* Replace with real headshot: 400x400px */}
-              <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-primary/70">
-                <svg className="h-14 w-14 text-white/80" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="mb-1 text-xl font-bold text-black dark:text-white">Michael Collicoat</h3>
-                <p className="text-primary mb-4 text-sm font-medium">Founder, ProjxAI | Brisbane, QLD, Australia</p>
-                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Michael is the founder of ProjxAI, based in Brisbane, QLD. He works with Australian SMEs to help them understand and implement AI in practical, revenue-generating ways — without the jargon, without the overpriced consultants, and without the vague "digital transformation" promises.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  ProjxAI was built specifically to fill the gap between enterprise AI tools (built for big corporates) and Australian small businesses who know AI matters but don&apos;t know where to start.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact / Booking */}
-      <section className="bg-dark py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[600px] text-center">
-            <h2 className="mb-5 text-3xl font-bold text-white">Ready to get started?</h2>
-            <p className="mb-8 text-base text-white/70">
-              Fill in a quick form and we&apos;ll get back to you within 1 business day to arrange your free 30-minute discovery call.
-            </p>
-            <Link
-              href="/contact#consulting"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+          <div className="max-w-3xl mx-auto">
+            <h2
+              className="text-3xl font-extrabold mb-4"
+              style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.02em" }}
             >
-              Get in touch →
-            </Link>
-            <div className="mt-8 space-y-1 text-sm text-white/50">
-              <p>ABN: 80 398 642 662 | Brisbane, QLD, Australia</p>
-              <p>Response within 1 business day</p>
-              <p>All enquiries handled personally by Michael — no offshore VA, no automated responses</p>
+              How it works after the call.
+            </h2>
+            <p className="text-lg mb-10 leading-relaxed" style={{ color: "#494455" }}>
+              Every engagement is scoped individually because every business is different. After the Clarity Call, we will recommend the right starting point and provide a clear proposal — no obligation to proceed.
+            </p>
+            <div className="flex flex-col gap-4 mb-6">
+              {[
+                { step: "Clarity Call", desc: "Free 15-minute call to understand your business and identify the highest-value AI opportunity." },
+                { step: "Proposal", desc: "If there is a fit, we send a same-day written proposal with a clear scope and fixed investment." },
+                { step: "Engagement", desc: "Work begins once you sign off. Most first engagements deliver a working output within 2–4 weeks." },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="flex items-start gap-5 px-6 py-5 rounded-xl"
+                  style={{ backgroundColor: "#ffffff", boxShadow: "0 1px 8px rgba(21,28,39,0.04)" }}
+                >
+                  <div className="shrink-0 w-2 h-2 rounded-full mt-2" style={{ backgroundColor: "#6B3FE7" }} />
+                  <div>
+                    <span className="font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>{item.step}: </span>
+                    <span style={{ color: "#494455" }}>{item.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm" style={{ color: "#5e6573" }}>ABN 80 398 642 662 · GST applicable on all invoices.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOOKING CTA ──────────────────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "#151c27" }}>
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2
+              className="font-extrabold mb-4"
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+                color: "#ffffff",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Book your free 15-minute Clarity Call
+            </h2>
+            <p className="text-lg mb-10" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Select a time that works for you. Brisbane-based. Australian businesses only.
+            </p>
+            <a
+              href="https://cal.com/michael-collicoat/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary-gradient inline-block px-10 py-5 rounded-xl text-white font-bold text-lg transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.4)] mb-10"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
+              Open Booking Calendar →
+            </a>
+            <div className="text-sm space-y-1" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <p>ABN: 80 398 642 662 · Brisbane, QLD, Australia</p>
+              <p>Prefer email? <a href="mailto:michaelc@projxai.com.au" className="underline hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.55)" }}>michaelc@projxai.com.au</a></p>
             </div>
           </div>
         </div>

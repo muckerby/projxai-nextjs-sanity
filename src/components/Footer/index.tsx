@@ -11,15 +11,19 @@ const Footer = () => {
             <Link href="/" className="flex items-center gap-2 mb-6">
               <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="18" cy="18" r="18" fill="#6B3FE7"/>
-                <path d="M18 18 L23.5 12.5 L20 20 Z" fill="white"/>
-                <path d="M18 18 L12.5 23.5 L16 16 Z" fill="white" fillOpacity="0.45"/>
+                {/* NE blade — bright white */}
+                <path d="M8 28 L28 8 L22 22 Z" fill="white"/>
+                {/* SW blade — faded white */}
+                <path d="M28 8 L8 28 L14 14 Z" fill="white" fillOpacity="0.45"/>
+                {/* Centre pivot hole */}
+                <circle cx="18" cy="18" r="2.5" fill="#6B3FE7"/>
               </svg>
               <span style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: "1.2rem", letterSpacing: "-0.02em", color: "#151c27" }}>
                 ProjxAI
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: "#494455" }}>
-              Digital Architects for Australian SMEs. We implement AI that actually fits your business.
+              Practical AI systems for Australian SMEs. We implement AI that actually fits your business.
             </p>
             <p className="text-xs" style={{ color: "#7a7487" }}>ABN 80 398 642 662 · Brisbane, QLD</p>
           </div>
@@ -34,6 +38,8 @@ const Footer = () => {
                 {[
                   { label: "Services", href: "/services" },
                   { label: "Tools", href: "/tools" },
+                  { label: "Pricing", href: "/pricing" },
+                  { label: "Case Studies", href: "/case-studies" },
                   { label: "Blog", href: "/blog" },
                   { label: "About", href: "/about" },
                   { label: "Contact", href: "/contact" },
@@ -54,6 +60,7 @@ const Footer = () => {
                 {[
                   { label: "Privacy Policy", href: "/privacy" },
                   { label: "Terms of Service", href: "/terms" },
+                  { label: "Security & Privacy", href: "/security-privacy" },
                 ].map((l) => (
                   <li key={l.href}>
                     <Link href={l.href} className="transition-colors duration-200 hover:text-[#6B3FE7]" style={{ color: "#494455" }}>

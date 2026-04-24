@@ -3,11 +3,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | ProjxAI",
   description:
-    "ProjxAI Privacy Policy — how we collect, use, and protect your personal information in accordance with the Australian Privacy Act 1988.",
+    "How ProjxAI collects, uses, and protects your personal information — written in plain English.",
   openGraph: {
     title: "Privacy Policy | ProjxAI",
     description:
-      "ProjxAI Privacy Policy — how we collect, use, and protect your personal information in accordance with the Australian Privacy Act 1988.",
+      "How ProjxAI collects, uses, and protects your personal information — written in plain English.",
     url: "https://www.projxai.com.au/privacy",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
@@ -19,11 +19,17 @@ export default function PrivacyPage() {
       <section className="bg-white pt-[140px] pb-16 dark:bg-gray-dark md:pb-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl">
+            <h1
+              className="mb-4 font-extrabold leading-[1.05]"
+              style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em", color: "#151c27" }}
+            >
               Privacy Policy
             </h1>
-            <p className="text-sm text-body-color dark:text-body-color-dark">
-              Last updated: 30 March 2026
+            <p className="mb-3 text-lg" style={{ color: "#494455" }}>
+              The short version: we collect only what we need, we don&apos;t sell it, and you can ask us to delete it any time.
+            </p>
+            <p className="text-sm" style={{ color: "#888" }}>
+              Last updated: 17 April 2026
             </p>
           </div>
         </div>
@@ -34,120 +40,114 @@ export default function PrivacyPage() {
           <div className="mx-auto max-w-[720px] space-y-10 text-base leading-relaxed text-body-color dark:text-body-color-dark">
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">1. Overview</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>1. Who we are</h2>
               <p>
-                ProjxAI (operated by Michael Collicoat, ABN 80 398 642 662, Brisbane, QLD, Australia) is committed to protecting your personal information in accordance with the <strong className="text-black dark:text-white">Australian Privacy Act 1988 (Cth)</strong> and the Australian Privacy Principles (APPs).
+                ProjxAI is operated by Collicorp Pty Ltd (ABN 80 398 642 662), based in Brisbane, QLD, Australia. We take your privacy seriously and comply with the Australian Privacy Act 1988 and the Australian Privacy Principles.
               </p>
               <p className="mt-3">
-                This policy explains what information we collect, why we collect it, how we use it, and your rights regarding your data.
+                This policy explains what information we collect, why we collect it, how we use it, and your rights. If you have questions, the easiest way to reach us is through the contact page.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">2. Information we collect</h2>
-              <p className="mb-3">We may collect the following types of personal information:</p>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>2. What we collect</h2>
+              <p className="mb-3">We only collect information that&apos;s genuinely useful for working with you:</p>
               <ul className="list-inside list-disc space-y-2">
-                <li><strong className="text-black dark:text-white">Contact information:</strong> name, email address, phone number — when you contact us directly or submit an enquiry form.</li>
-                <li><strong className="text-black dark:text-white">Business information:</strong> company name, industry, and business details you share during discovery calls or consultations.</li>
-                <li><strong className="text-black dark:text-white">Usage data:</strong> pages visited, time on site, browser type, and device information — collected automatically via analytics tools.</li>
-                <li><strong className="text-black dark:text-white">Email address:</strong> if you sign up for our tools waitlist or notification list.</li>
+                <li><strong style={{ color: "#151c27" }}>Contact details</strong> — name, email, and phone number when you fill in a form or get in touch directly.</li>
+                <li><strong style={{ color: "#151c27" }}>Business context</strong> — company name, industry, and relevant details you share during a discovery call or consultation.</li>
+                <li><strong style={{ color: "#151c27" }}>Anonymous usage data</strong> — pages visited, time on site, and browser type, collected automatically to help us improve the site.</li>
               </ul>
               <p className="mt-3">
-                We collect only the information that is necessary for the purposes described in this policy.
+                We don&apos;t collect anything we don&apos;t need.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">3. How we use your information</h2>
-              <p className="mb-3">We use your personal information to:</p>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>3. How we use it</h2>
+              <p className="mb-3">We use your information to:</p>
               <ul className="list-inside list-disc space-y-2">
-                <li>Respond to your enquiries and provide consulting services</li>
-                <li>Send you information about our services, tools, and updates (where you have opted in)</li>
-                <li>Improve our website and services based on usage patterns</li>
-                <li>Comply with our legal and regulatory obligations</li>
+                <li>Respond to your enquiries and deliver our consulting services</li>
+                <li>Send updates about our services and tools — only if you&apos;ve opted in</li>
+                <li>Improve the site based on how people actually use it</li>
+                <li>Meet our legal obligations where required</li>
               </ul>
               <p className="mt-3">
-                We will not use your personal information for any purpose other than those described above without your consent.
+                We won&apos;t use your information for anything else without asking you first.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">4. Cookies and tracking</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>4. Cookies</h2>
               <p className="mb-3">
-                Our website uses cookies and similar tracking technologies to improve your browsing experience and to collect anonymous usage statistics. Cookies we use may include:
+                We use cookies to keep the site working properly and to understand how people use it. That&apos;s it.
               </p>
               <ul className="list-inside list-disc space-y-2">
-                <li><strong className="text-black dark:text-white">Essential cookies:</strong> required for the website to function correctly.</li>
-                <li><strong className="text-black dark:text-white">Analytics cookies:</strong> used to understand how visitors interact with the site (e.g., Google Analytics or Vercel Analytics). These are anonymised and do not identify individuals.</li>
+                <li><strong style={{ color: "#151c27" }}>Essential cookies</strong> — keep the site functional.</li>
+                <li><strong style={{ color: "#151c27" }}>Analytics cookies</strong> — anonymous data on how the site is used (via Vercel Analytics). No individual is identified.</li>
               </ul>
               <p className="mt-3">
-                You can disable cookies in your browser settings, though some features of the site may not function as expected.
+                You can turn off cookies in your browser settings if you prefer.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">5. Third-party services</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>5. Third-party tools</h2>
               <p className="mb-3">
-                We use the following third-party services that may collect or process your data:
+                We use a small number of third-party services to run the site and manage our work:
               </p>
               <ul className="list-inside list-disc space-y-2">
-                <li><strong className="text-black dark:text-white">Vercel</strong> — website hosting and analytics</li>
-                <li><strong className="text-black dark:text-white">Sanity</strong> — content management system</li>
-                <li><strong className="text-black dark:text-white">Google Analytics</strong> — website traffic analytics (if enabled)</li>
+                <li><strong style={{ color: "#151c27" }}>Vercel</strong> — website hosting and performance analytics</li>
+                <li><strong style={{ color: "#151c27" }}>Sanity</strong> — content management</li>
+                <li><strong style={{ color: "#151c27" }}>HubSpot</strong> — CRM for managing enquiries and client relationships</li>
+                <li><strong style={{ color: "#151c27" }}>Resend</strong> — transactional email delivery</li>
               </ul>
               <p className="mt-3">
-                These services have their own privacy policies and data handling practices. We encourage you to review them. We do not sell your personal information to third parties.
+                Each has its own privacy policy. We never sell your information.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">6. Data storage and security</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>6. Security</h2>
               <p>
-                Your personal information is stored securely using industry-standard practices. We take reasonable steps to protect your data from misuse, loss, and unauthorised access. Data may be stored on servers located outside Australia (e.g., Vercel infrastructure), in which case it is subject to the privacy laws of that jurisdiction.
+                We use industry-standard security practices to protect your information. Some data may be stored on servers outside Australia (for example, on Vercel&apos;s global infrastructure) — where that&apos;s the case, it&apos;s handled in accordance with applicable privacy laws.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">7. Disclosure of your information</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>7. Sharing your information</h2>
               <p>
-                We will not share your personal information with third parties except where required by law, or where you have given explicit consent. We do not sell, rent, or trade your personal data.
+                We don&apos;t share your personal information with anyone except as needed to operate our services (e.g., passing form submissions to our CRM), or when required by law. We never sell, rent, or trade your data.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">8. Your rights</h2>
-              <p className="mb-3">Under the Australian Privacy Act, you have the right to:</p>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>8. Your rights</h2>
+              <p className="mb-3">You have the right to:</p>
               <ul className="list-inside list-disc space-y-2">
-                <li>Access the personal information we hold about you</li>
-                <li>Request correction of inaccurate or incomplete information</li>
-                <li>Request deletion of your personal information (subject to legal obligations)</li>
-                <li>Opt out of marketing communications at any time</li>
-                <li>Lodge a complaint with the <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Office of the Australian Information Commissioner (OAIC)</a></li>
+                <li>See what information we hold about you</li>
+                <li>Ask us to correct anything that&apos;s wrong</li>
+                <li>Request we delete your data (subject to any legal obligations we may have)</li>
+                <li>Unsubscribe from any marketing communications at any time</li>
+                <li>Raise a complaint with the <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer" style={{ color: "#6B3FE7" }} className="hover:underline">Office of the Australian Information Commissioner (OAIC)</a></li>
               </ul>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">9. Contact for privacy matters</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>9. Getting in touch</h2>
               <p>
-                For any privacy-related enquiries, requests, or complaints, please contact us at:
+                For any privacy-related questions or requests, reach us through our contact page. We aim to respond within 5 business days.
               </p>
               <p className="mt-3">
-                <a
-                  href="/contact"
-                  className="text-primary font-medium hover:underline"
-                >
-                  Contact us via our contact page →
+                <a href="/contact" style={{ color: "#6B3FE7" }} className="font-medium hover:underline">
+                  Contact us →
                 </a>
               </p>
-              <p className="mt-2 text-sm">
-                We will respond to all privacy enquiries within 5 business days.
-              </p>
             </div>
 
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-black dark:text-white">10. Changes to this policy</h2>
+              <h2 className="mb-4 text-2xl font-bold" style={{ color: "#151c27" }}>10. Updates to this policy</h2>
               <p>
-                We may update this Privacy Policy from time to time. The updated version will be published on this page with a revised &ldquo;last updated&rdquo; date. Continued use of our website after changes are posted constitutes your acceptance of the updated policy.
+                We may update this policy occasionally. When we do, we&apos;ll update the date at the top of the page. Continuing to use the site after changes are posted means you&apos;re comfortable with the updated policy.
               </p>
             </div>
 

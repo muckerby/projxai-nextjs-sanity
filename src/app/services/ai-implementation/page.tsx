@@ -2,24 +2,24 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Strategy & Roadmap | ProjxAI",
+  title: "AI Roadmap Sprint | ProjxAI",
   description:
-    "A 90-day AI adoption plan built around your business, not a template. Full process mapping, tool selection, and week-by-week milestones.",
+    "From audit findings to a 90-day action plan in 4 weeks. Process mapping, tool selection, phased roadmap, and Business case projections — built specifically for your business.",
   openGraph: {
-    title: "AI Strategy & Roadmap | ProjxAI",
+    title: "AI Roadmap Sprint | ProjxAI",
     description:
-      "A 90-day AI adoption plan built around your business, not a template. Full process mapping, tool selection, and week-by-week milestones.",
+      "Turn your AI opportunity findings into a sequenced 90-day implementation plan built for the way your business actually operates.",
     url: "https://www.projxai.com.au/services/ai-implementation",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 const included = [
-  "Full business process mapping across operations, marketing, and sales",
-  "AI tool evaluation and selection matched to your stack and budget",
-  "90-day implementation roadmap with week-by-week milestones",
-  "ROI projections for each recommended initiative",
-  "Team change management plan",
+  "Full business process mapping across operations, sales, marketing, and admin",
+  "AI tool evaluation and selection matched to your existing stack and budget",
+  "90-day phased implementation roadmap with week-by-week milestones",
+  "Business case projections for each recommended initiative",
+  "Team change management plan — how to bring your people with you",
   "30-day post-delivery check-in included",
 ];
 
@@ -31,22 +31,26 @@ export default function AiImplementationPage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <span className="text-primary mb-4 block text-sm font-semibold uppercase tracking-widest">
-              AI Strategy &amp; Roadmap
+              Plan
             </span>
-            <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              AI Strategy &amp; Roadmap
+            <h1
+              className="mb-5 font-extrabold leading-[1.05]"
+              style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(2rem, 5vw, 3.25rem)", letterSpacing: "-0.03em", color: "#151c27" }}
+            >
+              AI Roadmap Sprint
             </h1>
-            <p className="mb-4 text-xl font-medium text-black dark:text-white">
-              A 90-day AI adoption plan built around your business, not a template.
+            <p className="mb-4 text-xl font-medium" style={{ color: "#151c27" }}>
+              From audit findings to a 90-day action plan in 4 weeks.
             </p>
-            <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              You know AI can help. But knowing where to start, what to prioritise, and how to sequence it without disrupting your team is where most businesses get stuck.
+            <p className="mb-8 text-lg leading-relaxed" style={{ color: "#494455" }}>
+              Knowing what&apos;s possible with AI isn&apos;t the same as knowing what to do, in what order, with the team and tools you actually have. The Roadmap Sprint takes your highest-value AI opportunities and turns them into a sequenced, practical plan — one your business can actually execute without disrupting operations.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Get Your Roadmap →
+              Book a Clarity Call →
             </Link>
           </div>
         </div>
@@ -56,14 +60,14 @@ export default function AiImplementationPage() {
       <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              What is included
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+              What you get
             </h2>
             <ul className="space-y-4">
               {included.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
-                  <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <li key={item} className="flex items-start gap-3 text-base" style={{ color: "#494455" }}>
+                  <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="#6B3FE7" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {item}
                 </li>
@@ -77,22 +81,22 @@ export default function AiImplementationPage() {
       <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
               How it works
             </h2>
             <div className="space-y-8">
               {[
                 {
-                  step: "Discovery Call (Free, 30 min)",
-                  body: "We understand your business goals, current tools, and where you feel most stuck with AI. No obligation — you leave with clarity either way.",
+                  step: "Clarity Call (Free, 15 min)",
+                  body: "We understand your business goals and confirm the Roadmap Sprint is the right next step — either following an Opportunity Audit or as a standalone engagement.",
                 },
                 {
-                  step: "Business Process Mapping (1–2 weeks)",
-                  body: "We map your operations across all key areas: how work moves, where data lives, where time is lost, and where AI can realistically accelerate results.",
+                  step: "Discovery & Mapping (Weeks 1–2)",
+                  body: "We map your operations in detail across all core functions — how work moves, where data lives, where time is lost, and where AI can realistically accelerate results.",
                 },
                 {
-                  step: "Roadmap Delivery",
-                  body: "A 60-minute working session to walk through your 90-day plan. Written in plain English. Every recommendation has a rationale, a tool, and a projected outcome.",
+                  step: "Roadmap Delivery (Weeks 3–4)",
+                  body: "A 60-minute working session to walk through your 90-day plan. Written in plain English. Every recommendation includes a rationale, a tool, and a projected outcome.",
                 },
                 {
                   step: "30-Day Check-in",
@@ -100,14 +104,17 @@ export default function AiImplementationPage() {
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5">
-                  <div className="bg-primary/10 text-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                  <div
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    style={{ backgroundColor: "#e7deff", color: "#6B3FE7" }}
+                  >
                     {i + 1}
                   </div>
                   <div>
-                    <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    <h3 className="mb-2 text-lg font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
                       {item.step}
                     </h3>
-                    <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                    <p className="text-base leading-relaxed" style={{ color: "#494455" }}>
                       {item.body}
                     </p>
                   </div>
@@ -118,42 +125,46 @@ export default function AiImplementationPage() {
         </div>
       </section>
 
-      {/* Investment */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
+      {/* Related */}
+      <section className="bg-gray-light py-12 dark:bg-bg-color-dark">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-5 text-3xl font-bold text-black dark:text-white">
-              Investment
-            </h2>
-            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Starting from <strong className="text-black dark:text-white">$2,500 AUD</strong>. Final investment quoted after discovery call based on business size and scope.
-            </p>
-            <p className="text-sm text-body-color dark:text-body-color-dark">
-              GST applicable. ABN 80 398 642 662.
-            </p>
+            <h3 className="mb-5 text-xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+              Often paired with
+            </h3>
+            <ul className="space-y-2 text-base" style={{ color: "#494455" }}>
+              <li>
+                <Link href="/services/ai-consulting" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  AI Opportunity Audit — start with a structured assessment first →
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-content" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  Pilot Workflow Build — take the roadmap into your first live build →
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-dark py-20">
+      <section className="py-20" style={{ backgroundColor: "#151c27" }}>
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
-            <h2 className="mb-5 text-3xl font-bold text-white">
+            <h2 className="mb-5 text-3xl font-bold text-white" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Ready for a plan that actually gets used?
             </h2>
-            <p className="mb-8 text-base leading-relaxed text-white/70">
-              Start with a free discovery call. We will confirm the roadmap is the right next step before you commit to anything.
+            <p className="mb-8 text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Start with a free 15-minute Clarity Call. We will confirm the Roadmap Sprint is the right next step before you commit to anything.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Get Your Roadmap →
+              Book a Clarity Call →
             </Link>
-            <p className="mt-4 text-sm text-white/50">
-              Michael Collicoat | ProjxAI | Brisbane, QLD | Response within 1 business day
-            </p>
           </div>
         </div>
       </section>

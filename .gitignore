@@ -31,3 +31,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# local credentials (never commit)
+.claude/github-pat
+.claude/unsplash-key

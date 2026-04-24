@@ -39,10 +39,12 @@ const Header = () => {
             {/* Compass icon — filled purple circle with white navigation pointer */}
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="18" cy="18" r="18" fill="#6B3FE7"/>
-              {/* North-east pointer (bright white) */}
-              <path d="M18 18 L23.5 12.5 L20 20 Z" fill="white"/>
-              {/* South-west pointer (semi-transparent white) */}
-              <path d="M18 18 L12.5 23.5 L16 16 Z" fill="white" fillOpacity="0.45"/>
+              {/* NE blade — bright white, tip pointing toward top-right */}
+              <path d="M8 28 L28 8 L22 22 Z" fill="white"/>
+              {/* SW blade — faded white, tip pointing toward bottom-left */}
+              <path d="M28 8 L8 28 L14 14 Z" fill="white" fillOpacity="0.45"/>
+              {/* Centre pivot hole */}
+              <circle cx="18" cy="18" r="2.5" fill="#6B3FE7"/>
             </svg>
             <span
               style={{
@@ -63,8 +65,8 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600 }}
-                className={`text-sm transition-colors duration-200 ${
+                style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600, fontSize: "0.9375rem" }}
+                className={`transition-colors duration-200 ${
                   isActive(link.href)
                     ? "text-[#6B3FE7] border-b-2 border-[#6B3FE7] pb-0.5"
                     : "text-[#151c27] hover:text-[#6B3FE7]"

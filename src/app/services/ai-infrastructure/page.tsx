@@ -4,22 +4,23 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Infrastructure & Hosting | ProjxAI",
   description:
-    "Run AI in your business without the enterprise price tag. Cloud hosting advisory, local AI deployment, and managed hosting via retainer. Starting from $1,500.",
+    "Run AI in your business without the enterprise price tag. Cloud hosting advisory, local AI deployment, and managed hosting for Australian SMEs.",
   openGraph: {
     title: "AI Infrastructure & Hosting | ProjxAI",
     description:
-      "Run AI in your business without the enterprise price tag. Cloud hosting advisory, local AI deployment, and managed hosting via retainer. Starting from $1,500.",
+      "Run AI in your business without the enterprise price tag. The right stack for your workloads — cloud, hybrid, or local.",
     url: "https://www.projxai.com.au/services/ai-infrastructure",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 const included = [
-  "Cloud hosting advisory (Azure, AWS, or Google Cloud)",
-  "Local AI deployment options for businesses with privacy requirements",
+  "Current stack review — what you pay for, what you use, and what you can replace",
+  "Cloud hosting advisory — Azure, AWS, or Google Cloud matched to your needs",
+  "Local AI deployment options for businesses with data privacy requirements",
   "VM and container setup for AI workloads",
-  "Cost comparison vs current spend — we regularly find 40–60% savings",
-  "Ongoing managed hosting available via retainer",
+  "Security configuration and documentation",
+  "Ongoing managed hosting available via Managed AI Operations engagement",
 ];
 
 export default function AiInfrastructurePage() {
@@ -30,22 +31,26 @@ export default function AiInfrastructurePage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <span className="text-primary mb-4 block text-sm font-semibold uppercase tracking-widest">
-              AI Infrastructure &amp; Hosting
+              Infrastructure
             </span>
-            <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
+            <h1
+              className="mb-5 font-extrabold leading-[1.05]"
+              style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(2rem, 5vw, 3.25rem)", letterSpacing: "-0.03em", color: "#151c27" }}
+            >
               AI Infrastructure &amp; Hosting
             </h1>
-            <p className="mb-4 text-xl font-medium text-black dark:text-white">
+            <p className="mb-4 text-xl font-medium" style={{ color: "#151c27" }}>
               Run AI in your business without the enterprise price tag.
             </p>
-            <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              Many businesses assume AI requires expensive infrastructure or complex cloud setups. In 2026, that is not true. The right stack — properly configured — costs a fraction of what most businesses currently pay for legacy services.
+            <p className="mb-8 text-lg leading-relaxed" style={{ color: "#494455" }}>
+              Many businesses assume AI requires expensive infrastructure or complex cloud setups. In 2026, that is not the case. The right stack — properly configured for your workloads and privacy requirements — costs a fraction of what most businesses currently spend on legacy services. We will show you exactly what that looks like for your business.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Talk Infrastructure →
+              Book a Clarity Call →
             </Link>
           </div>
         </div>
@@ -55,14 +60,14 @@ export default function AiInfrastructurePage() {
       <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
               What is included
             </h2>
             <ul className="space-y-4">
               {included.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
-                  <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <li key={item} className="flex items-start gap-3 text-base" style={{ color: "#494455" }}>
+                  <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="#6B3FE7" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {item}
                 </li>
@@ -76,37 +81,40 @@ export default function AiInfrastructurePage() {
       <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
               How it works
             </h2>
             <div className="space-y-8">
               {[
                 {
+                  step: "Clarity Call (Free, 15 min)",
+                  body: "We understand what you are currently running, your data privacy requirements, and your AI workloads. Most businesses are surprised by how much they can simplify.",
+                },
+                {
                   step: "Current Stack Review",
-                  body: "We audit what you are currently paying for — hosting, SaaS, storage, software licences. Most businesses find 40–60% of spend is on services they could replace or consolidate.",
+                  body: "We audit what you currently pay for — hosting, SaaS, storage, licences — and identify consolidation and cost reduction opportunities.",
                 },
                 {
                   step: "Infrastructure Design",
-                  body: "We design a hosting architecture matched to your AI workloads, data privacy requirements, and budget. Cloud, hybrid, or local — whichever makes sense.",
+                  body: "We design a hosting architecture matched to your AI workloads and data requirements. Cloud, hybrid, or local — whichever makes practical and financial sense.",
                 },
                 {
-                  step: "Setup & Configuration",
-                  body: "We stand up the environment, configure security, and connect it to your AI tools and workflows. Documented and handed over.",
-                },
-                {
-                  step: "Optional: Managed Hosting",
-                  body: "For businesses that want ongoing management, we offer managed hosting via our monthly retainer. Monitoring, updates, and support included.",
+                  step: "Setup & Handover",
+                  body: "We stand up the environment, configure security, connect it to your AI tools and workflows, and hand over full documentation.",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5">
-                  <div className="bg-primary/10 text-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                  <div
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    style={{ backgroundColor: "#e7deff", color: "#6B3FE7" }}
+                  >
                     {i + 1}
                   </div>
                   <div>
-                    <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    <h3 className="mb-2 text-lg font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
                       {item.step}
                     </h3>
-                    <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                    <p className="text-base leading-relaxed" style={{ color: "#494455" }}>
                       {item.body}
                     </p>
                   </div>
@@ -117,42 +125,22 @@ export default function AiInfrastructurePage() {
         </div>
       </section>
 
-      {/* Investment */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-5 text-3xl font-bold text-black dark:text-white">
-              Investment
-            </h2>
-            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Starting from <strong className="text-black dark:text-white">$1,500 AUD</strong> for the initial stack review and infrastructure design. Setup costs quoted after scoping based on complexity.
-            </p>
-            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Managed hosting available via monthly retainer — priced separately based on requirements.
-            </p>
-            <p className="text-sm text-body-color dark:text-body-color-dark">
-              GST applicable. ABN 80 398 642 662.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Related */}
-      <section className="bg-white py-12 dark:bg-gray-dark">
+      <section className="bg-gray-light py-12 dark:bg-bg-color-dark">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white">
+            <h3 className="mb-5 text-xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
               Often paired with
             </h3>
-            <ul className="space-y-2 text-base text-body-color dark:text-body-color-dark">
+            <ul className="space-y-2 text-base" style={{ color: "#494455" }}>
               <li>
-                <Link href="/services/ai-content" className="text-primary hover:underline">
-                  AI Workflow Implementation — build what runs on it →
+                <Link href="/services/ai-content" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  Pilot Workflow Build — build what runs on it →
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-automation" className="text-primary hover:underline">
-                  AI Retainer — ongoing management and optimisation →
+                <Link href="/services/ai-automation" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  Managed AI Operations — ongoing management and optimisation →
                 </Link>
               </li>
             </ul>
@@ -161,24 +149,22 @@ export default function AiInfrastructurePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-dark py-20">
+      <section className="py-20" style={{ backgroundColor: "#151c27" }}>
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
-            <h2 className="mb-5 text-3xl font-bold text-white">
+            <h2 className="mb-5 text-3xl font-bold text-white" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Paying too much for infrastructure that is holding you back?
             </h2>
-            <p className="mb-8 text-base leading-relaxed text-white/70">
-              Tell us what you are currently running. We will tell you honestly whether there is a better, cheaper option — and build it if there is.
+            <p className="mb-8 text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Tell us what you are currently running. We will give you an honest assessment of whether there is a better, cheaper option — and build it if there is.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Talk Infrastructure →
+              Book a Clarity Call →
             </Link>
-            <p className="mt-4 text-sm text-white/50">
-              Michael Collicoat | ProjxAI | Brisbane, QLD | Response within 1 business day
-            </p>
           </div>
         </div>
       </section>

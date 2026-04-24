@@ -2,24 +2,26 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Audit | ProjxAI",
+  title: "AI Opportunity Audit | ProjxAI",
   description:
-    "Understand exactly where AI fits in your business before spending a dollar on tools. A structured 2-hour assessment with a prioritised opportunity report.",
+    "Know exactly where AI fits in your business — before you spend a cent. A structured assessment with a prioritised opportunity report delivered within 48 hours.",
   openGraph: {
-    title: "AI Readiness Audit | ProjxAI",
+    title: "AI Opportunity Audit | ProjxAI",
     description:
-      "Understand exactly where AI fits in your business before spending a dollar on tools. A structured 2-hour assessment with a prioritised opportunity report.",
+      "Know exactly where AI fits in your business before spending a cent. Prioritised opportunity report within 48 hours.",
     url: "https://www.projxai.com.au/services/ai-consulting",
     images: [{ url: "https://www.projxai.com.au/images/logo.png" }],
   },
 };
 
 const included = [
-  "2-hour structured assessment of your current workflows and tools",
-  "Data audit — where your business data lives and how AI-ready it is",
-  "Team capacity review — who will manage and use AI day to day",
-  "Prioritised opportunity report — 3 to 5 specific AI use cases ranked by ROI potential and ease of implementation",
-  "Optional add-on: AI Tool Stack Review — audit of tools you already pay for that have unused AI features ($750 bundled)",
+  "Structured 2-hour working session (remote or in person)",
+  "End-to-end business process mapping across operations, sales, and admin",
+  "Data readiness assessment — where your data lives and how AI-ready it is",
+  "Team capability and change readiness review",
+  "Prioritised AI opportunity register — 3 to 5 use cases ranked by potential impact and implementation effort",
+  "Written report delivered within 48 hours",
+  "Optional add-on: AI Tool Stack Review — audit of tools you already pay for that have unused AI features",
 ];
 
 export default function AiConsultingPage() {
@@ -30,22 +32,26 @@ export default function AiConsultingPage() {
         <div className="container">
           <div className="mx-auto max-w-[720px]">
             <span className="text-primary mb-4 block text-sm font-semibold uppercase tracking-widest">
-              AI Readiness Audit
+              Start Here
             </span>
-            <h1 className="mb-5 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              AI Readiness Audit
+            <h1
+              className="mb-5 font-extrabold leading-[1.05]"
+              style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(2rem, 5vw, 3.25rem)", letterSpacing: "-0.03em", color: "#151c27" }}
+            >
+              AI Opportunity Audit
             </h1>
-            <p className="mb-4 text-xl font-medium text-black dark:text-white">
-              Understand exactly where AI fits in your business before spending a dollar on tools.
+            <p className="mb-4 text-xl font-medium" style={{ color: "#151c27" }}>
+              Know exactly where AI fits in your business — before you spend a cent.
             </p>
-            <p className="mb-8 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
-              Most businesses that fail at AI do not fail because they chose the wrong tool. They fail because they did not understand their own processes, data, or team readiness before they started.
+            <p className="mb-8 text-lg leading-relaxed" style={{ color: "#494455" }}>
+              Most businesses that try AI and fail don&apos;t fail because they picked the wrong tool. They fail because they started building before they understood their own operations, data, and team readiness. The AI Opportunity Audit gives you that foundation — a clear, expert assessment of where AI can genuinely help, and in what order.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Book Your Audit →
+              Book a Clarity Call →
             </Link>
           </div>
         </div>
@@ -55,14 +61,14 @@ export default function AiConsultingPage() {
       <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
-              What is included
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+              What you get
             </h2>
             <ul className="space-y-4">
               {included.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-body-color dark:text-body-color-dark">
-                  <svg className="text-primary mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <li key={item} className="flex items-start gap-3 text-base" style={{ color: "#494455" }}>
+                  <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="#6B3FE7" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {item}
                 </li>
@@ -76,37 +82,40 @@ export default function AiConsultingPage() {
       <section className="bg-white py-16 dark:bg-gray-dark md:py-20">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-10 text-3xl font-bold text-black dark:text-white">
+            <h2 className="mb-10 text-3xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
               How it works
             </h2>
             <div className="space-y-8">
               {[
                 {
-                  step: "Discovery Call (Free, 30 min)",
+                  step: "Clarity Call (Free, 15 min)",
                   body: "We learn about your business and confirm the audit is the right starting point. You leave with 3 insights regardless of whether we work together.",
                 },
                 {
-                  step: "2-Hour Assessment",
-                  body: "A structured working session — remote or in person. We go through your operations, tools, data, and team. You answer questions; we listen and map.",
+                  step: "Audit Session (2 hours)",
+                  body: "A structured working session — remote or in person. We map your operations, review your tools and data, and assess your team's readiness. You answer; we listen and document.",
                 },
                 {
-                  step: "Opportunity Report Delivery",
-                  body: "Within 3 business days, you receive a written report with 3 to 5 prioritised AI opportunities, ranked by ROI potential and implementation effort.",
+                  step: "Written Report (within 48 hours)",
+                  body: "3 to 5 prioritised AI opportunities, each with a potential impact assessment and implementation effort score. Written in plain English — no jargon.",
                 },
                 {
-                  step: "Optional: Continue to Implementation",
-                  body: "Many clients use the report to move straight to implementation. Quoted separately based on the opportunities identified.",
+                  step: "Optional: Proceed to Roadmap Sprint",
+                  body: "Many clients use the report to move straight into a sequenced 90-day implementation plan. Quoted separately based on the opportunities identified.",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5">
-                  <div className="bg-primary/10 text-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                  <div
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                    style={{ backgroundColor: "#e7deff", color: "#6B3FE7" }}
+                  >
                     {i + 1}
                   </div>
                   <div>
-                    <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                    <h3 className="mb-2 text-lg font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
                       {item.step}
                     </h3>
-                    <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                    <p className="text-base leading-relaxed" style={{ color: "#494455" }}>
                       {item.body}
                     </p>
                   </div>
@@ -117,42 +126,22 @@ export default function AiConsultingPage() {
         </div>
       </section>
 
-      {/* Investment */}
-      <section className="bg-gray-light py-16 dark:bg-bg-color-dark md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-[720px]">
-            <h2 className="mb-5 text-3xl font-bold text-black dark:text-white">
-              Investment
-            </h2>
-            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Starting from <strong className="text-black dark:text-white">$750 AUD</strong>. Includes the 2-hour assessment and written opportunity report.
-            </p>
-            <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-              Optional add-on: AI Tool Stack Review bundled at $750. Final investment confirmed after discovery call based on business complexity.
-            </p>
-            <p className="text-sm text-body-color dark:text-body-color-dark">
-              GST applicable. ABN 80 398 642 662.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Related */}
-      <section className="bg-white py-12 dark:bg-gray-dark">
+      <section className="bg-gray-light py-12 dark:bg-bg-color-dark">
         <div className="container">
           <div className="mx-auto max-w-[720px]">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white">
-              Next steps after your audit
+            <h3 className="mb-5 text-xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
+              The natural next steps
             </h3>
-            <ul className="space-y-2 text-base text-body-color dark:text-body-color-dark">
+            <ul className="space-y-2 text-base" style={{ color: "#494455" }}>
               <li>
-                <Link href="/services/ai-implementation" className="text-primary hover:underline">
-                  AI Strategy &amp; Roadmap — 90-day plan →
+                <Link href="/services/ai-implementation" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  AI Roadmap Sprint — turn your audit into a 90-day action plan →
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-content" className="text-primary hover:underline">
-                  AI Workflow Implementation — build it →
+                <Link href="/services/ai-content" className="hover:underline" style={{ color: "#6B3FE7" }}>
+                  Pilot Workflow Build — build and launch your first AI workflow →
                 </Link>
               </li>
             </ul>
@@ -161,24 +150,22 @@ export default function AiConsultingPage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-dark py-20">
+      <section className="py-20" style={{ backgroundColor: "#151c27" }}>
         <div className="container">
           <div className="mx-auto max-w-[600px] text-center">
-            <h2 className="mb-5 text-3xl font-bold text-white">
-              Ready to find out where AI fits in your business?
+            <h2 className="mb-5 text-3xl font-bold text-white" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+              Ready to find out where AI fits?
             </h2>
-            <p className="mb-8 text-base leading-relaxed text-white/70">
-              Start with a free 30-minute discovery call. No obligation. We will confirm the audit is the right starting point before you spend anything.
+            <p className="mb-8 text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Start with a free 15-minute Clarity Call. We will confirm the audit is the right starting point before you commit to anything.
             </p>
             <Link
-              href="/contact"
-              className="inline-block rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 hover:bg-primary/80"
+              href="/contact#consulting"
+              className="inline-block rounded-xl px-8 py-4 text-base font-bold text-white duration-300 hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)", fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Book Your Audit →
+              Book a Clarity Call →
             </Link>
-            <p className="mt-4 text-sm text-white/50">
-              Michael Collicoat | ProjxAI | Brisbane, QLD | Response within 1 business day
-            </p>
           </div>
         </div>
       </section>
