@@ -1,10 +1,11 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-type Phase = 'intro' | 'questions' | 'submitting' | 'results' | 'error'
+type Phase = 'intro' | 'questions' | 'submitting' | 'error'
 
 type QuestionType = 'radio' | 'checkbox'
 
@@ -286,14 +287,13 @@ function SectionBadge({ section }: { section: string }) {
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function AuditPage() {
+  const router = useRouter()
   const [phase, setPhase] = useState<Phase>('intro')
   const [currentQ, setCurrentQ] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
   const [otherText, setOtherText] = useState<Record<string, string>>({}) // free-text for "Other" / "Something else"
   const [optionalNote, setOptionalNote] = useState('') // final optional textarea
   const [autoAdvanceTimer, setAutoAdvanceTimer] = useState<ReturnType<typeof setTimeout> | null>(null)
-  const [report, setReport] = useState<Record<string, unknown> | null>(null)
-  const [reportId, setReportId] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState('')
 
   // Check for bypass param
@@ -425,15 +425,9 @@ export default function AuditPage() {
       }
 
       const data = await res.json()
-      setReport(data.report)
-      setReportId(data.reportId)
 
-      // Store reportId in localStorage so returning visitors can find their report
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('projxai_audit_report_id', data.reportId)
-      }
-
-      setPhase('results')
+      // Redirect to the report page -- email gate + full report UI live there
+      router.push(`/audit/report/${data.accessToken}`)
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Unknown error'
       setErrorMessage(msg)
@@ -585,71 +579,6 @@ export default function AuditPage() {
     )
   }
 
-  // ── Results — placeholder for Session 21 ─────────────────────────────────
-  if (phase === 'results') {
-    return (
-      <main className="min-h-screen px-4 py-16" style={{ backgroundColor: '#fafafa' }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="flex justify-center mb-8">
-            <CompassLogo size={48} />
-          </div>
-          <div
-            className="rounded-2xl p-8 mb-6"
-            style={{ backgroundColor: '#f3eefe', border: '1px solid #e5d7fd' }}
-          >
-            <p className="text-sm font-semibold mb-1" style={{ color: '#6B3FE7' }}>
-              Session 20 — Exit criteria verification
-            </p>
-            <h2 className="text-2xl font-bold mb-2" style={{ color: '#151c27' }}>
-              Report generated ✓
-            </h2>
-            <p style={{ color: '#4a5568' }}>
-              Score: <strong>{report?.score as number}/100</strong> —{' '}
-              {report?.scoreLabel as string}
-            </p>
-            <p className="mt-1" style={{ color: '#4a5568' }}>
-              Report ID: <code className="text-sm">{reportId}</code>
-            </p>
-          </div>
-
-          <p className="text-sm mb-4" style={{ color: '#6b7280' }}>
-            Full report UI (score ring, opportunity cards, gate, email) ships in Session 21. Raw
-            report JSON below for verification:
-          </p>
-
-          <pre
-            className="rounded-xl p-6 text-xs overflow-auto"
-            style={{
-              backgroundColor: '#151c27',
-              color: '#a5f3fc',
-              maxHeight: '600px',
-              lineHeight: '1.6',
-            }}
-          >
-            {JSON.stringify(report, null, 2)}
-          </pre>
-
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => {
-                setPhase('intro')
-                setCurrentQ(0)
-                setAnswers({})
-                setOtherText({})
-                setOptionalNote('')
-                setReport(null)
-                setReportId('')
-              }}
-              className="px-6 py-3 rounded-lg font-semibold text-white"
-              style={{ backgroundColor: '#6B3FE7' }}
-            >
-              Run another audit →
-            </button>
-          </div>
-        </div>
-      </main>
-    )
-  }
 
   // ── Questions Screen ──────────────────────────────────────────────────────
 
