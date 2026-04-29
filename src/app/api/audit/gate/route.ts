@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     }
 
     // ── HubSpot contact creation (graceful -- non-blocking if key absent) ──
-    const hubspotKey = process.env.HUBSPOT_API_KEY
+    const hubspotKey = process.env.HUBSPOT_API_TOKEN
     if (hubspotKey) {
       try {
         const hsRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
@@ -99,4 +99,3 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
-}
