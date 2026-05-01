@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { getSupabaseClient } from '@/lib/supabase'
 
+export const maxDuration = 60 // seconds — Claude API can take 15-30s on complex prompts
+
 function getAnthropicClient() {
   return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! })
 }
@@ -335,8 +337,22 @@ export async function POST(request: NextRequest) {
       const raw = msg.content[0]
       if (raw.type !== 'text') throw new Error('Unexpected response type')
       let text = raw.text.trim()
-      if (text.startsWith('```')) text = text.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '')
-      reportJson = JSON.parse(text)
+      // Strip markdown code fences if present
+      if (text.startsWith('```')) {
+        text = text.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '').trim()
+      }
+      // Robust JSON extraction: find the outermost { ... } in case Claude adds preamble/postamble
+      const firstBrace = text.indexOf('{')
+      const lastBrace = text.lastIndexOf('}')
+      if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+        text = text.slice(firstBrace, lastBrace + 1)
+      }
+      try {
+        reportJson = JSON.parse(text)
+      } catch (parseErr) {
+        console.error('JSON parse error. Raw Claude response (first 500 chars):', text.slice(0, 500))
+        throw parseErr
+      }
     } catch (claudeErr) {
       console.error('Claude API error:', claudeErr)
       await supabase.from('audit_sessions').update({ status: 'error' }).eq('id', session.id)
