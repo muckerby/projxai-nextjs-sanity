@@ -647,5 +647,5 @@ function ReportView({ report, accessToken, alreadyGated }: { report: Report; acc
 
 export default function ReportClient({ report, reportId, accessToken, alreadyGated }: Props) {
   const typedReport = report as unknown as Report
-  return <ReportView report={typedReport} accessToken={accessToken} alreadyGated={alreadyGated} reportId={reportId} />
+  return <ReportView report={typedReport} accessToken={accessToken} alreadyGated={alreadyGated} />
 }
