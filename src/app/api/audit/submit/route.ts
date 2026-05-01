@@ -243,7 +243,7 @@ TONE CONSTRAINTS:
 
 // ─── Format answers for Claude ────────────────────────────────────────────────
 
-function formatAnswers(answers: Record<string, unknown>, abrData: ReturnType<Awaited<ReturnType<typeof lookupABN>>>): string {
+function formatAnswers(answers: Record<string, unknown>, abrData: Awaited<ReturnType<typeof lookupABN>>): string {
   const labels: Record<string, string> = {
     businessName: 'Business name',
     abn: 'ABN',
@@ -381,3 +381,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Something went wrong — please try again.' }, { status: 500 })
   }
 }
+            
