@@ -4,11 +4,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free AI Tools for Australian SMEs | ProjxAI",
   description:
-    "Free AI tools built specifically for Australian SMEs. Start with the AI Opportunity Score — find out where your business stands with AI in 5 minutes.",
+    "Free AI tools built specifically for Australian SMEs. Start with the AI Opportunity Audit — get a personalised readiness score, top use cases and a 90-day action plan in under 10 minutes.",
   openGraph: {
     title: "Free AI Tools for Australian SMEs | ProjxAI",
     description:
-      "Free AI tools for Australian SMEs. Take the AI Opportunity Score and find out exactly where to start.",
+      "Free AI tools for Australian SMEs. Take the AI Opportunity Audit and find out exactly where to start.",
     url: "https://www.projxai.com.au/tools",
   },
 };
@@ -37,20 +37,20 @@ export default function ToolsPage() {
                 }}
               >
                 AI Opportunity{" "}
-                <span style={{ color: "#6B3FE7", fontStyle: "italic" }}>Score</span>
+                <span style={{ color: "#6B3FE7", fontStyle: "italic" }}>Audit</span>
               </h1>
               <p className="text-xl max-w-lg leading-relaxed mb-10" style={{ color: "#494455", fontFamily: "Manrope, sans-serif" }}>
-                Answer 12 questions and get a personalised AI readiness score,
-                your top 3 use cases, and the smartest first step for your
-                business. Takes 5 minutes. No signup required to see results.
+                14 questions. A personalised AI readiness score, your top opportunities by business impact,
+                a 90-day action plan, and investment estimates — all specific to your business.
+                Takes under 10 minutes. Free.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/tools/ai-opportunity-score"
+                  href="/audit"
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-white font-bold text-base transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.3)]"
                   style={{ backgroundColor: "#6B3FE7", fontFamily: "Space Grotesk, sans-serif" }}
                 >
-                  Take the Assessment →
+                  Take the Audit →
                 </Link>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function ToolsPage() {
                   {/* Score band */}
                   <div className="p-6 rounded-2xl text-center" style={{ background: "linear-gradient(135deg, #521acf, #6b3fe7)" }}>
                     <div className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "Manrope, sans-serif" }}>Your AI Opportunity Score</div>
-                    <div className="text-5xl font-extrabold text-white mb-2" style={{ fontFamily: "Space Grotesk, sans-serif" }}>68%</div>
+                    <div className="text-5xl font-extrabold text-white mb-2" style={{ fontFamily: "Space Grotesk, sans-serif" }}>68<span className="text-3xl">/100</span></div>
                     <div className="inline-block px-3 py-1 rounded-full text-xs font-bold" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "#fff" }}>Good Foundation</div>
                     <div className="mt-4 h-2 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.2)" }}>
                       <div className="h-2 rounded-full" style={{ width: "68%", backgroundColor: "#ccbdff" }} />
@@ -136,9 +136,9 @@ export default function ToolsPage() {
 
           {/* Tool cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Live: AI Opportunity Score */}
+            {/* Live: AI Opportunity Audit */}
             <Link
-              href="/tools/ai-opportunity-score"
+              href="/audit"
               className="group p-8 rounded-[2rem] transition-all duration-300 hover:shadow-[0_8px_40px_rgba(107,63,231,0.15)] hover:-translate-y-1"
               style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 20px rgba(21,28,39,0.04)", border: "1.5px solid #d4c5f9" }}
             >
@@ -149,17 +149,17 @@ export default function ToolsPage() {
                   </svg>
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "Manrope, sans-serif", backgroundColor: "#6B3FE7", color: "#ffffff" }}>
-                  🟢 LIVE
+                  🟢 LIVE · FREE
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27" }}>
-                AI Opportunity Score
+                AI Opportunity Audit
               </h3>
               <p className="leading-relaxed mb-8" style={{ color: "#494455" }}>
-                12 questions. Personalised AI readiness score, top use cases for your industry, and a recommended first step.
+                14 questions. Personalised AI readiness score, top opportunities, 90-day action plan, and investment estimates — specific to your business.
               </p>
               <div className="flex items-center gap-2 text-sm font-bold" style={{ color: "#6B3FE7", fontFamily: "Space Grotesk, sans-serif" }}>
-                <span>Take the assessment →</span>
+                <span>Take the audit →</span>
               </div>
             </Link>
 
