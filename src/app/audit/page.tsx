@@ -326,18 +326,66 @@ export default function AuditPage() {
     for (const [k, v] of Object.entries(otherText)) if (v.trim()) finalAnswers[`${k}_other`] = v.trim()
     if (optionalNote.trim()) finalAnswers['optionalWorkflow'] = optionalNote.trim()
 
-    const bypass = typeof window !== 'undefined'
-      ? new URLSearchParams(window.location.search).get('bypass') || '' : ''
-
     try {
+      // Step 1: Stream Claude response from submit endpoint
       const res = await fetch('/api/audit/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: finalAnswers, bypass }),
+        body: JSON.stringify({ answers: finalAnswers }),
       })
-      if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d.error || 'Server error') }
-      const data = await res.json()
-      router.push(`/audit/report/${data.accessToken}`)
+
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}))
+        throw new Error(d.error || 'Server error')
+      }
+
+      if (!res.body) throw new Error('No response stream received')
+
+      const reader = res.body.getReader()
+      const decoder = new TextDecoder()
+      let fullText = ''
+
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+        fullText += decoder.decode(value, { stream: true })
+      }
+
+      // Check for error signal from stream
+      if (fullText.includes('__ERROR__:')) {
+        const errMsg = fullText.split('__ERROR__:')[1]?.trim() || 'Report generation failed'
+        throw new Error(errMsg)
+      }
+
+      // Extract session ID from first line
+      let sessionId = ''
+      let jsonText = fullText
+      if (fullText.startsWith('__SESSION__:')) {
+        const firstNewline = fullText.indexOf('\n')
+        sessionId = fullText.slice('__SESSION__:'.length, firstNewline).trim()
+        jsonText = fullText.slice(firstNewline + 1)
+      }
+
+      // Robust JSON extraction: find outermost { ... }
+      const firstBrace = jsonText.indexOf('{')
+      const lastBrace = jsonText.lastIndexOf('}')
+      if (firstBrace === -1 || lastBrace === -1) throw new Error('Invalid report format received')
+      const reportJson = JSON.parse(jsonText.slice(firstBrace, lastBrace + 1))
+
+      // Step 2: Save parsed report to Supabase, get accessToken
+      const saveRes = await fetch('/api/audit/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId, reportJson }),
+      })
+
+      if (!saveRes.ok) {
+        const d = await saveRes.json().catch(() => ({}))
+        throw new Error(d.error || 'Failed to save report')
+      }
+
+      const { accessToken } = await saveRes.json()
+      router.push(`/audit/report/${accessToken}`)
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : 'Unknown error')
       setPhase('error')
@@ -448,7 +496,7 @@ export default function AuditPage() {
           <p key={loadingIdx} className="text-white text-xl font-medium mb-2" style={{ minHeight: '2rem' }}>
             {LOADING_MSGS[loadingIdx](name)}
           </p>
-          <p style={{ color: '#9ca3af' }}>This takes about 5–8 seconds.</p>
+          <p style={{ color: '#9ca3af' }}>This usually takes 15–20 seconds.</p>
         </div>
       </main>
     )
