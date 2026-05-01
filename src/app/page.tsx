@@ -562,7 +562,7 @@ export default function Home() {
       <section className="py-20" style={{ backgroundColor: "#f0f3ff" }}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Free tool card */}
+            {/* AI Opportunity Audit card */}
             <div
               className="rounded-3xl p-10 h-full"
               style={{ backgroundColor: "#ffffff", boxShadow: "0 4px 40px rgba(21,28,39,0.06)" }}
@@ -577,13 +577,13 @@ export default function Home() {
                 className="text-2xl font-extrabold mb-4"
                 style={{ fontFamily: "Space Grotesk, sans-serif", color: "#151c27", letterSpacing: "-0.02em" }}
               >
-                ROAS Calculator
+                AI Opportunity Audit
               </h3>
               <p className="leading-relaxed mb-6" style={{ color: "#494455" }}>
-                Most Australian eCommerce businesses are measuring ROAS wrong — comparing it to the wrong benchmarks and making bad decisions as a result. Our free calculator takes your actual inputs and tells you exactly where you stand.
+                Answer 14 questions about your business and get a personalised AI Opportunity Score with three specific automation recommendations — grounded in your actual operations, not generic advice.
               </p>
               <ul className="space-y-2 mb-8">
-                {["Breakeven ROAS calculated from your gross margin", "Platform-by-platform benchmark comparison", "Revenue gap analysis and specific recommendations"].map((f) => (
+                {["Your AI Opportunity Score (0–100) with readiness breakdown", "Three named automation opportunities with ROI estimates", "A 90-day implementation plan calibrated to your team"].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#494455" }}>
                     <span style={{ color: "#6B3FE7", fontWeight: 700 }}>✓</span>
                     {f}
@@ -591,11 +591,11 @@ export default function Home() {
                 ))}
               </ul>
               <Link
-                href="/tools/roas-calculator"
+                href="/audit"
                 className="btn-primary-gradient inline-block px-7 py-3 rounded-xl text-white font-bold text-sm transition-all hover:shadow-[0_20px_50px_rgba(82,26,207,0.3)]"
                 style={{ fontFamily: "Space Grotesk, sans-serif" }}
               >
-                Try the ROAS Calculator →
+                Try the free AI Opportunity Audit →
               </Link>
             </div>
 
